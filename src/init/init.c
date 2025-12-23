@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:12 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/12/21 04:11:36 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/12/23 03:03:33 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,23 @@ void	validate_map(char **map, int len)
 {
 	int	i;
 	int	j;
+	char	line;
 
 	j = 0;
 	i = 0;
+	line = NULL;
 	while (j < len)
 	{
 		while (map[j][i] == ' ' || map[j][i] == '\t')
 			i++;
 		if (!ft_strncmp(&map[j][i], "NO ", 3))
+			line =  ft_substr();
 		else if (!ft_strncmp(&map[j][i], "SO ", 3))
+			line =  ft_substr();
 		else if (!ft_strncmp(&map[j][i], "WE ", 3))
+			line =  ft_substr();
 		else if (!ft_strncmp(&map[j][i], "EA ", 3))
+			line =  ft_substr();
 		j++;
 	}
 }
@@ -75,9 +81,10 @@ static char	**check_superline(char *superline, int len)
 	if (!map)
 		return (free(superline), ft_error("Split map error"), NULL);
 
-	//comprobación de limites de mapa
-	validate_map(map, len);
-	
+	//comprobación de limites y parseo de mapa
+
+	//validate_map(map, len);
+
 	return (map);
 }
 
