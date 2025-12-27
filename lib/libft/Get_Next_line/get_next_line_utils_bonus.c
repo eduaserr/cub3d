@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 12:05:59 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/07/25 12:25:54 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/12/27 23:24:27 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 		s1 = ft_strdup("");
 	if (!s1)
 		return (NULL);
+	if (!s2)
+		s2 = ft_strdup("");
+	if (!s2)
+		return (NULL);
 	s3 = malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!s3)
 		return (NULL);
@@ -51,5 +55,6 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	while (s2[++j])
 		s3[i++] = s2[j];
 	s3[i] = '\0';
-	return (ft_free_str(&s1), s3);
+	s1 = ft_free_str(&s1);
+	return (s3);
 }

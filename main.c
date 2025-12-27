@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/12/21 03:57:09 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/12/28 00:14:35 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ int	check_extension(char *av)
 
 void	get_map(t_game *game, char *file_map)
 {
+	init_values(game);
 	game->map.map = NULL;
 	game->map.map = read_map(file_map);
-	init_values(game);
+	parse_map(game, game->map.map);
 	game->map.cpymap = ft_arrdup(game->map.map);
 	if (!game->map.cpymap)
 	{
@@ -53,5 +54,10 @@ int	main(int ac, char **av)
 	if (ac != 2 || check_extension(av[1]))
 		ft_error("invalid arguments, map name/extension");
 	get_map(&game, av[1]);
+	ft_printf("sale de getmap\n");
+	ft_printmatrix(game.map.map);
+	int i = 0;
+	while (i < 4)
+		ft_printlines(game.parser.imgsidewall[i++]);
 	return 0;
 }
