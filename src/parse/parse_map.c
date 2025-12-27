@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 03:22:12 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/12/28 00:36:51 by eduaserr         ###   ########.fr       */
+/*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
+/*   Updated: 2025/12/28 00:36:49 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-void	init_values(t_game *game)
+void	parse_map(t_game *game, char **map)
 {
-	game->map.map = NULL;
-	game->map.cpymap = NULL;
-	game->map.length = 0;
-	game->map.width = 0;
-	game->map.floor = 0;
-	game->map.wall = 0;
-	game->map.player = 0;
-	game->parser.imgsidewall[NORTH] = NULL;
-	game->parser.imgsidewall[SOUTH] = NULL;
-	game->parser.imgsidewall[WEST] = NULL;
-	game->parser.imgsidewall[EAST] = NULL;
+	get_textures(game, map);
+	if (!game->parser.imgsidewall[NORTH] || !game->parser.imgsidewall[EAST]
+		|| !game->parser.imgsidewall[SOUTH] || !game->parser.imgsidewall[WEST])
+		ft_error("Missing texture(s)");
 }

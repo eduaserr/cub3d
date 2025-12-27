@@ -22,10 +22,14 @@ LIBS	:= -L $(LIB) -lft -L $(LIBMLX)/build/ -lmlx42 -ldl -lglfw -pthread -lm
 RM		= rm -rf
 
 INIT	= src/init/
+PARSE	= src/parse/
 
 ### SRCS ###
 SRC		= main.c
-SRCS	= $(INIT)init.c
+SRCS	= $(INIT)init.c \
+		  $(PARSE)read_map.c \
+		  $(PARSE)parse_map.c \
+		  $(PARSE)parse_textures.c
 
 ### OBJS ###
 OBJS	= $(SRC:.c=.o) $(SRCS:.c=.o)
