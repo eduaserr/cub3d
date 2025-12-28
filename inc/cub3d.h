@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/12/28 00:36:52 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/12/28 19:01:10 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	init_values(t_game *game);
 /* ************************************************************************** */
 char	**read_map(char *file_map);
 void	parse_map(t_game *game, char **map);
-void	get_textures(t_game *game, char **map);
+void	get_sidetxt(t_game *game, char **map);
 
 /* ************************************************************************** */
 /*                                  UTILS                                     */

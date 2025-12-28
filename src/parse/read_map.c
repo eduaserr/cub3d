@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/12/28 00:36:50 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/12/28 19:07:59 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,13 @@ static char	**check_superline(char *superline)
 {
 	char	**map;
 
+	// Comprueba inicio del mapa
 	if (!superline || !superline[0] || superline[0] == '\n')
 		return (free(superline), ft_error("Empty map or line error"), NULL);
 	map = ft_split(superline, '\n');
 	if (!map)
 		return (free(superline), ft_error("Split map error"), NULL);
+	// Check surrounded by walls
 	return (map);
 }
 
