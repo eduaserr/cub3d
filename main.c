@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/12/28 00:14:35 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/12/29 20:14:47 by paularuizal      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ int	main(int ac, char **av)
 	get_map(&game, av[1]);
 	ft_printf("sale de getmap\n");
 	ft_printmatrix(game.map.map);
+	init_player(&game);
+	printf("Posición jugador: x=%f, y=%f\n", game.player.x, game.player.y);
+	printf("Dirección jugador: dir_x=%f, dir_y=%f\n", game.player.dir_x, game.player.dir_y);
 	int i = 0;
 	while (i < 4)
 		ft_printlines(game.parser.imgsidewall[i++]);

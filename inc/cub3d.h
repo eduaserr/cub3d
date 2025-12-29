@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/12/28 19:01:10 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/12/29 20:12:21 by paularuizal      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <math.h>
 # include <time.h>
+# include <stdio.h>
 # include "../lib/libft/libft.h"
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 
@@ -30,6 +31,16 @@ typedef struct s_parser
 {
 	char	*imgsidewall[4];
 }		t_parser;
+
+typedef struct s_player
+{
+	double	x;
+	double	y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+}		t_player;
 
 typedef struct s_map
 {
@@ -53,12 +64,14 @@ typedef struct s_game
 	//t_txture	*txture;
 	t_parser	parser;
 	t_map		map;
+	t_player	player;
 }		t_game;
 
 /* ************************************************************************** */
 /*                                  INIT                                      */
 /* ************************************************************************** */
 void	init_values(t_game *game);
+void	init_player(t_game *game);
 
 /* ************************************************************************** */
 /*                                  PARSE                                     */

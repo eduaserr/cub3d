@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
+#    By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/13 03:22:17 by eduaserr          #+#    #+#              #
-#    Updated: 2025/12/13 04:36:37 by eduaserr         ###   ########.fr        #
+#    Updated: 2025/12/29 20:13:08 by paularuizal      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ PARSE	= src/parse/
 ### SRCS ###
 SRC		= main.c
 SRCS	= $(INIT)init.c \
+		  $(INIT)init_player.c \
 		  $(PARSE)read_map.c \
 		  $(PARSE)parse_map.c \
 		  $(PARSE)parse_textures.c

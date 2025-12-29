@@ -25,4 +25,10 @@ void	init_values(t_game *game)
 	game->parser.imgsidewall[SOUTH] = NULL;
 	game->parser.imgsidewall[WEST] = NULL;
 	game->parser.imgsidewall[EAST] = NULL;
+	game->player.x = 0.0;
+	game->player.y = 0.0;
+	game->player.dir_x = 0.0;
+	game->player.dir_y = 0.0;
+	game->player.plane_x = 0.0;
+	game->player.plane_y = 0.0;
 }
