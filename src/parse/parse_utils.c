@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 18:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/01 18:13:37 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/01 21:41:49 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ char	*get_path(char *line)
 	i = 0;
 	while (line[i] && ft_isspace(line[i]))
 		i++;
+	// Saltar identificador (NO, SO, WE, EA, F, C)
 	while (line[i] && !ft_isspace(line[i]))
 		i++;
+	// Saltar espacios/tabs
 	while (line[i] && ft_isspace(line[i]))
 		i++;
 	path = ft_get_word(line, i);
@@ -36,8 +38,10 @@ int	get_type(char *line, char **sides, int len)
 	int	j;
 
 	i = 0;
+	// Saltar espacios iniciales
 	while (line[i] && ft_isspace(line[i]))
 		i++;
+	// Buscar coincidencia
 	j = 0;
 	while (j < len)
 	{

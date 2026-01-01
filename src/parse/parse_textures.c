@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/01 18:13:38 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/01 21:41:49 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	get_sidetxt(t_game *game, char **map)
 		type = get_type(map[i], sides, 4);
 		if (type != -1)
 		{
+			// Ya existe?
 			if (game->parser.imgsidewall[type])
 				ft_error("Duplicate texture definition");
 			game->parser.imgsidewall[type] = get_path(map[i]);

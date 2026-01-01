@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 18:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/01 18:13:37 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/01 21:42:57 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,23 @@ static t_color	parse_rgb(char *line)
 	return (rgb);
 }
 
-void	get_colours(t_game *game, char **map)
+void	get_colors(t_game *game, char **map)
 {
 	int		i;
 	int		type;
 	int		count;
-	char	*colours[2];
+	char	*colors[2];
 
-	colours[F] = "F";
-	colours[C] = "C";
-	i = 0;
+	colors[F] = "F";
+	colors[C] = "C";
+	i = -1;
 	count = 0;
-	while (map[i] && count < 2)
+	while (map[++i] && count < 2)
 	{
-		type = get_type(map[i], colours, 2);
-		if (type == F && game->parser.rgb[F].b == -1)
+		type = get_type(map[i], colors, 2);
+		if (type != -1)
+			ft_error("Duplicate colour definition");
+		else if (type == F && game->parser.rgb[F].b == -1)
 		{
 			game->parser.rgb[F] = parse_rgb(get_path(map[i]));
 			count++;
@@ -64,8 +66,5 @@ void	get_colours(t_game *game, char **map)
 			game->parser.rgb[C] = parse_rgb(get_path(map[i]));
 			count++;
 		}
-		else if (type != -1)
-			ft_error("Duplicate colour definition");
-		i++;
 	}
 }

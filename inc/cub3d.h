@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/01 18:13:36 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/01 21:37:55 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	init_player(t_game *game);
 char	**read_map(char *file_map);
 void	parse_map(t_game *game, char **map);
 void	get_sidetxt(t_game *game, char **map);
-void	get_colours(t_game *game, char **map);
+void	get_colors(t_game *game, char **map);
 int		get_type(char *line, char **sides, int len);
 char	*get_path(char *line);
 
