@@ -93,6 +93,7 @@ void	init_player(t_game *game);
 char	**read_map(char *file_map);
 void	parse_map(t_game *game, char **map);
 void	get_sidetxt(t_game *game, char **map);
+void	get_colours(t_game *game, char **map);
 int		get_type(char *line, char **sides, int len);
 char	*get_path(char *line);
 

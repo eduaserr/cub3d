@@ -1,40 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_textures.c                                   :+:      :+:    :+:   */
+/*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
+/*   Created: 2026/01/01 18:00:00 by eduaserr          #+#    #+#             */
 /*   Updated: 2026/01/01 18:00:00 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-void	get_sidetxt(t_game *game, char **map)
+char	*get_path(char *line)
 {
 	int		i;
-	int		type;
-	int		count;
-	char	*sides[4];
+	char	*path;
 
-	sides[NORTH] = "NO";
-	sides[SOUTH] = "SO";
-	sides[WEST] = "WE";
-	sides[EAST] = "EA";
 	i = 0;
-	count = 0;
-	while (map[i] && count < 4)
-	{
-		type = get_type(map[i], sides, 4);
-		if (type != -1)
-		{
-			if (game->parser.imgsidewall[type])
-				ft_error("Duplicate texture definition");
-			game->parser.imgsidewall[type] = get_path(map[i]);
-			count++;
-		}
+	while (line[i] && ft_isspace(line[i]))
 		i++;
+	while (line[i] && !ft_isspace(line[i]))
+		i++;
+	while (line[i] && ft_isspace(line[i]))
+		i++;
+	path = ft_get_word(line, i);
+	if (!path)
+		ft_error("Memory allocation error");
+	return (path);
+}
+
+int	get_type(char *line, char **sides, int len)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (line[i] && ft_isspace(line[i]))
+		i++;
+	j = 0;
+	while (j < len)
+	{
+		if (!ft_strncmp(&line[i], sides[j], ft_strlen(sides[j]))
+			&& ft_isspace(line[i + ft_strlen(sides[j])]))
+			return (j);
+		j++;
 	}
+	return (-1);
 }

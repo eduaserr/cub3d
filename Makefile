@@ -30,7 +30,9 @@ SRCS	= $(INIT)init.c \
 		  $(INIT)init_player.c \
 		  $(PARSE)read_map.c \
 		  $(PARSE)parse_map.c \
-		  $(PARSE)parse_textures.c
+		  $(PARSE)parse_textures.c \
+		  $(PARSE)parse_colors.c \
+		  $(PARSE)parse_utils.c
 
 ### OBJS ###
 OBJS	= $(SRC:.c=.o) $(SRCS:.c=.o)
