@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/12/29 20:14:47 by paularuizal      ###   ########.fr       */
+/*   Updated: 2026/01/01 17:48:03 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/cub3d.h"
+
+void	ft_printrgb(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < 2){
+		ft_printf("r %d\n", game->parser.rgb[i].r);
+		ft_printf("g %d\n", game->parser.rgb[i].g);
+		ft_printf("b %d\n", game->parser.rgb[i].b);
+		i++;
+	}
+}
 
 void	ft_error(char *str)
 {
@@ -62,5 +75,6 @@ int	main(int ac, char **av)
 	int i = 0;
 	while (i < 4)
 		ft_printlines(game.parser.imgsidewall[i++]);
+	ft_printrgb(&game);
 	return 0;
 }

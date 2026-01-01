@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/12/29 20:12:21 by paularuizal      ###   ########.fr       */
+/*   Updated: 2026/01/01 17:47:36 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,23 @@ enum dir
 	WEST = 3,
 };
 
+enum rgb
+{
+	F = 0,
+	C = 1,
+};
+
+typedef struct s_color
+{
+    int	r;
+    int	g;
+    int	b;
+}	t_color;
+
 typedef struct s_parser
 {
 	char	*imgsidewall[4];
+	t_color	rgb[2];
 }		t_parser;
 
 typedef struct s_player
@@ -79,10 +93,13 @@ void	init_player(t_game *game);
 char	**read_map(char *file_map);
 void	parse_map(t_game *game, char **map);
 void	get_sidetxt(t_game *game, char **map);
+int		get_type(char *line, char **sides, int len);
+char	*get_path(char *line);
 
 /* ************************************************************************** */
 /*                                  UTILS                                     */
 /* ************************************************************************** */
 void	ft_error(char *str);
+void	ft_printrgb(t_game *game);
 
 #endif

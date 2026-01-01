@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_word.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 19:11:47 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/06/16 19:20:16 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/12/31 22:07:23 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char	*get_word(char *str, int i)
+char	*ft_get_word(char *str, int i)
 {
 	char	*word;
 	int		j;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:40:57 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/07/09 17:25:08 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/12/31 22:12:42 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -503,7 +503,7 @@ void	ft_freematrix(char ***matrix);
  * @param i index where the word start.
  * @return (word) new malloc str separated by spaces.
  */
-char	*get_word(char *str, int i);
+char	*ft_get_word(char *str, int i);
 
 /* FT_PRINTF FOLDER */
 
