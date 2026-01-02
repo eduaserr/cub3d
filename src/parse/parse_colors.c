@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 18:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/01 21:42:57 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/02 02:54:30 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,7 @@ void	get_colors(t_game *game, char **map)
 	while (map[++i] && count < 2)
 	{
 		type = get_type(map[i], colors, 2);
-		if (type != -1)
-			ft_error("Duplicate colour definition");
-		else if (type == F && game->parser.rgb[F].b == -1)
+		if (type == F && game->parser.rgb[F].b == -1)
 		{
 			game->parser.rgb[F] = parse_rgb(get_path(map[i]));
 			count++;
@@ -66,5 +64,7 @@ void	get_colors(t_game *game, char **map)
 			game->parser.rgb[C] = parse_rgb(get_path(map[i]));
 			count++;
 		}
+		else if (type != -1)
+			ft_error("Duplicate colour definition");
 	}
 }
