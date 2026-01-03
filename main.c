@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/01 21:54:45 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/03 19:27:15 by paularuizal      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	main(int ac, char **av)
 		ft_error("invalid arguments, map name/extension");
 	get_file(&game, av[1]);
 	ft_printf("sale de getmap\n");
-	ft_printmatrix(game.map.map);
+//	ft_printmatrix(game.map.map);
 	init_player(&game);
 	printf("Posición jugador: x=%f, y=%f\n", game.player.x, game.player.y);
 	printf("Dirección jugador: dir_x=%f, dir_y=%f\n", game.player.dir_x, game.player.dir_y);
@@ -76,5 +76,8 @@ int	main(int ac, char **av)
 	while (i < 4)
 		ft_printlines(game.parser.imgsidewall[i++]);
 	ft_printrgb(&game);
+	init_mlx(&game);
+	draw_map(&game);
+	mlx_loop(game.mlx);
 	return 0;
 }

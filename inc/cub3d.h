@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/01 21:37:55 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/03 19:47:12 by paularuizal      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 # include <stdio.h>
 # include "../lib/libft/libft.h"
 # include "../lib/MLX42/include/MLX42/MLX42.h"
+
+# define WIN_WIDTH 1024
+# define WIN_HEIGHT 768
+# define CELL_SIZE 20
+# define PLAYER_SIZE 10
 
 enum dir
 {
@@ -72,7 +77,8 @@ typedef struct s_map
 
 typedef struct s_game
 {
-	void		*mlx;
+	mlx_t		*mlx;
+	mlx_image_t	*img;
 	void		*window;
 	//t_img		*images;
 	//t_txture	*txture;
@@ -86,6 +92,7 @@ typedef struct s_game
 /* ************************************************************************** */
 void	init_values(t_game *game);
 void	init_player(t_game *game);
+void	init_mlx(t_game *game);
 
 /* ************************************************************************** */
 /*                                  PARSE                                     */
@@ -96,6 +103,11 @@ void	get_sidetxt(t_game *game, char **map);
 void	get_colors(t_game *game, char **map);
 int		get_type(char *line, char **sides, int len);
 char	*get_path(char *line);
+
+/* ************************************************************************** */
+/*                                   EXEC                                     */
+/* ************************************************************************** */
+void	draw_map(t_game *game);
 
 /* ************************************************************************** */
 /*                                  UTILS                                     */

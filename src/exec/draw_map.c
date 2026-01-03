@@ -1,0 +1,66 @@
+#include "../../inc/cub3d.h"
+
+static void	draw_cell(t_game *game, int x, int y, uint32_t color)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < CELL_SIZE)
+	{
+		j = 0;
+		while (j < CELL_SIZE)
+		{
+			mlx_put_pixel(game->img, x * CELL_SIZE + i, y * CELL_SIZE + j, color);
+			j++;
+		}
+		i++;
+	}
+}
+
+static void	draw_player(t_game *game)
+{
+	int	i;
+	int	j;
+	int	start_x;
+	int	start_y;
+
+	start_x = (int)(game->player.x * 20) - PLAYER_SIZE / 2; // Para estar centrado entre las dos paredes
+	start_y = (int)(game->player.y * 20) - PLAYER_SIZE / 2;
+	i = 0;
+	while (i < PLAYER_SIZE)
+	{
+		j = 0;
+		while (j < PLAYER_SIZE)
+		{
+			mlx_put_pixel(game->img, start_x+ i, start_y + j, 0x0000FFFF);
+			j++;
+		}
+		i++;
+	}
+}
+
+void	draw_map(t_game *game)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	while (game->map.map[j])
+	{
+		i = 0;
+		while (game->map.map[j][i])
+		{
+			// Es una pared
+			if (game->map.map[j][i] == '1')
+				draw_cell(game, i, j, 0xFF0000FF);
+			else if (game->map.map[j][i] == '0')
+				draw_cell(game, i, j, 0x00FF00FF);
+			else
+				draw_cell(game, i, j, 0);
+			i++;
+		}
+		j++;
+	}
+	draw_player(game);
+}
