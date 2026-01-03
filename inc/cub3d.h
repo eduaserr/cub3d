@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/03 19:47:12 by paularuizal      ###   ########.fr       */
+/*   Updated: 2026/01/03 20:55:00 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ enum rgb
 
 typedef struct s_color
 {
-    int	r;
-    int	g;
-    int	b;
+	int	r;
+	int	g;
+	int	b;
 }	t_color;
 
 typedef struct s_parser
@@ -63,8 +63,9 @@ typedef struct s_player
 
 typedef struct s_map
 {
+	char		**file;
+	char		**cpyfile;
 	char		**map;
-	char		**cpymap;
 	int			width;
 	int			length;
 	int			player;
@@ -80,8 +81,6 @@ typedef struct s_game
 	mlx_t		*mlx;
 	mlx_image_t	*img;
 	void		*window;
-	//t_img		*images;
-	//t_txture	*txture;
 	t_parser	parser;
 	t_map		map;
 	t_player	player;
@@ -98,7 +97,7 @@ void	init_mlx(t_game *game);
 /*                                  PARSE                                     */
 /* ************************************************************************** */
 char	**read_map(char *file_map);
-void	parse_map(t_game *game, char **map);
+void	parse_file(t_game *game, char **map);
 void	get_sidetxt(t_game *game, char **map);
 void	get_colors(t_game *game, char **map);
 int		get_type(char *line, char **sides, int len);

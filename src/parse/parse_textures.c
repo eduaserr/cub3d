@@ -6,13 +6,13 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/01 21:41:49 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/03 06:25:40 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-void	get_sidetxt(t_game *game, char **map)
+void	get_sidetxt(t_game *game, char **file)
 {
 	int		i;
 	int		type;
@@ -25,15 +25,15 @@ void	get_sidetxt(t_game *game, char **map)
 	sides[EAST] = "EA";
 	i = 0;
 	count = 0;
-	while (map[i] && count < 4)
+	while (file[i] && count < 4)
 	{
-		type = get_type(map[i], sides, 4);
+		type = get_type(file[i], sides, 4);
 		if (type != -1)
 		{
 			// Ya existe?
 			if (game->parser.imgsidewall[type])
 				ft_error("Duplicate texture definition");
-			game->parser.imgsidewall[type] = get_path(map[i]);
+			game->parser.imgsidewall[type] = get_path(file[i]);
 			count++;
 		}
 		i++;

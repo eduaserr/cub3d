@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 18:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/02 02:54:30 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/03 06:26:04 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static t_color	parse_rgb(char *line)
 	return (rgb);
 }
 
-void	get_colors(t_game *game, char **map)
+void	get_colors(t_game *game, char **file)
 {
 	int		i;
 	int		type;
@@ -51,17 +51,17 @@ void	get_colors(t_game *game, char **map)
 	colors[C] = "C";
 	i = -1;
 	count = 0;
-	while (map[++i] && count < 2)
+	while (file[++i] && count < 2)
 	{
-		type = get_type(map[i], colors, 2);
+		type = get_type(file[i], colors, 2);
 		if (type == F && game->parser.rgb[F].b == -1)
 		{
-			game->parser.rgb[F] = parse_rgb(get_path(map[i]));
+			game->parser.rgb[F] = parse_rgb(get_path(file[i]));
 			count++;
 		}
 		else if (type == C && game->parser.rgb[C].b == -1)
 		{
-			game->parser.rgb[C] = parse_rgb(get_path(map[i]));
+			game->parser.rgb[C] = parse_rgb(get_path(file[i]));
 			count++;
 		}
 		else if (type != -1)

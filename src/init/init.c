@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:12 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/01 03:52:48 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/03 06:22:10 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	init_values(t_game *game)
 {
 	int	i;
 
-	game->map.map = NULL;
-	game->map.cpymap = NULL;
+	game->map.file = NULL;
+	game->map.cpyfile = NULL;
 	game->map.length = 0;
 	game->map.width = 0;
 	game->map.floor = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/03 19:27:15 by paularuizal      ###   ########.fr       */
+/*   Updated: 2026/01/03 20:53:10 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ int	check_extension(char *av)
 void	get_file(t_game *game, char *file_map)
 {
 	init_values(game);
-	game->map.map = NULL;
-	game->map.map = read_map(file_map);
-	parse_map(game, game->map.map);
-	game->map.cpymap = ft_arrdup(game->map.map);
-	if (!game->map.cpymap)
+	game->map.file = NULL;
+	game->map.file = read_map(file_map);
+	parse_file(game, game->map.file);
+	game->map.cpyfile = ft_arrdup(game->map.file);
+	if (!game->map.cpyfile)
 	{
-		free(game->map.map);
+		free(game->map.file);
 		//ft_freegame(game);
 		ft_error("Unexpected arrdup error");
 	}
@@ -69,6 +69,7 @@ int	main(int ac, char **av)
 	get_file(&game, av[1]);
 	ft_printf("sale de getmap\n");
 //	ft_printmatrix(game.map.map);
+	ft_printmatrix(game.map.file);
 	init_player(&game);
 	printf("Posición jugador: x=%f, y=%f\n", game.player.x, game.player.y);
 	printf("Dirección jugador: dir_x=%f, dir_y=%f\n", game.player.dir_x, game.player.dir_y);
@@ -79,5 +80,6 @@ int	main(int ac, char **av)
 	init_mlx(&game);
 	draw_map(&game);
 	mlx_loop(game.mlx);
+	ft_printmatrix(game.map.map);
 	return 0;
 }
