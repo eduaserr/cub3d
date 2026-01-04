@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/03 07:07:20 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/04 07:22:53 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void	get_map(t_game *game, char **file)
 	// Copiar desde start hasta i
 	game->map.length = i - start + 1;
 	game->map.map = ft_calloc(game->map.length + 1, sizeof(char *));
+	if (!game->map.map)
+		return (ft_error2("calloc allocation error"));
 	j = 0;
 	while (start <= i)
 		game->map.map[j++] = ft_strdup(file[start++]);
@@ -90,12 +92,14 @@ void	parse_file(t_game *game, char **file)
 	// Validar que todas las texturas existen
 	if (!game->parser.imgsidewall[NORTH] || !game->parser.imgsidewall[EAST]
 		|| !game->parser.imgsidewall[SOUTH] || !game->parser.imgsidewall[WEST])
-		ft_error("Missing texture(s)");
+		return (free_all(game), ft_error("Missing texture(s)"));
 	get_colors(game, file);
 	// Validar que todos los colores fueron parseados
 	if (game->parser.rgb[F].b == -1 || game->parser.rgb[C].b == -1)
-		ft_error("Missing colours(s)");
+		return (free_all(game), ft_error("Missing texture(s)"));
 	get_map(game, file);
+	if (!game->map.map)
+		return (free_all(game), ft_error("Missing map"));
 	//check_borders();
 	//check_entities();
 	//valid_path();

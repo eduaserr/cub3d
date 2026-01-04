@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/03 20:55:00 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/04 07:11:56 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ void	draw_map(t_game *game);
 /*                                  UTILS                                     */
 /* ************************************************************************** */
 void	ft_error(char *str);
+void	ft_error2(char *str);
 void	ft_printrgb(t_game *game);
+void	free_all(t_game *game);
 
 #endif

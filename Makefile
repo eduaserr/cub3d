@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+         #
+#    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/13 03:22:17 by eduaserr          #+#    #+#              #
-#    Updated: 2026/01/03 19:56:57 by paularuizal      ###   ########.fr        #
+#    Updated: 2026/01/04 07:51:19 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

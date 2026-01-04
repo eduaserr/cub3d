@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 18:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/01 21:41:49 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/04 06:09:47 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*get_path(char *line)
 	char	*path;
 
 	i = 0;
+	path = NULL;
 	while (line[i] && ft_isspace(line[i]))
 		i++;
 	// Saltar identificador (NO, SO, WE, EA, F, C)
@@ -28,7 +29,7 @@ char	*get_path(char *line)
 		i++;
 	path = ft_get_word(line, i);
 	if (!path)
-		ft_error("Memory allocation error");
+		return (NULL);
 	return (path);
 }
 

@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 18:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/03 06:26:04 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/04 07:13:59 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static t_color	parse_rgb(char *line)
 	rgb.r = parse_value(line, &i);
 	rgb.g = parse_value(line, &i);
 	rgb.b = parse_value(line, &i);
+	line = ft_free_str(&line);
 	return (rgb);
 }
 
@@ -65,6 +66,6 @@ void	get_colors(t_game *game, char **file)
 			count++;
 		}
 		else if (type != -1)
-			ft_error("Duplicate colour definition");
+			return (ft_error2("Duplicate colour definition"));
 	}
 }
