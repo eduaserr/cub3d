@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 12:05:59 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/12/27 23:24:27 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/04 07:52:21 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,30 +31,57 @@ char	*ft_substr_gnl(char *str, ssize_t start, ssize_t len)
 	return (substr);
 }
 
-char	*ft_strjoin_gnl(char *s1, char *s2)
+static char	*handle_null_strings(char **s1, char **s2, int *f)
 {
-	char	*s3;
+	if (!*s1)
+	{
+		*s1 = ft_strdup("");
+		if (!*s1)
+			return (NULL);
+	}
+	if (!*s2)
+	{
+		*f = 1;
+		*s2 = ft_strdup("");
+		if (!*s2)
+			return (NULL);
+	}
+	return (*s1);
+}
+
+static void	ft_cpystr(char *dest, char *s1, char *s2)
+{
 	ssize_t	i;
 	ssize_t	j;
 
 	i = -1;
-	j = -1;
-	if (!s1)
-		s1 = ft_strdup("");
-	if (!s1)
-		return (NULL);
-	if (!s2)
-		s2 = ft_strdup("");
-	if (!s2)
-		return (NULL);
-	s3 = malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!s3)
-		return (NULL);
 	while (s1[++i])
-		s3[i] = s1[i];
-	while (s2[++j])
-		s3[i++] = s2[j];
-	s3[i] = '\0';
+		dest[i] = s1[i];
+	j = 0;
+	while (s2[j])
+		dest[i++] = s2[j++];
+	dest[i] = '\0';
+}
+
+char	*ft_strjoin_gnl(char *s1, char *s2)
+{
+	char	*s3;
+	int		f;
+
+	f = 0;
+	if (!handle_null_strings(&s1, &s2, &f))
+		return (NULL);
+	s3 = (char *)malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!s3)
+	{
+		s1 = ft_free_str(&s1);
+		if (f)
+			free(s2);
+		return (NULL);
+	}
+	ft_cpystr(s3, s1, s2);
 	s1 = ft_free_str(&s1);
+	if (f)
+		free(s2);
 	return (s3);
 }
