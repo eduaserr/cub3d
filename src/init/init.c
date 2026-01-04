@@ -6,37 +6,56 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:12 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/03 06:22:10 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/04 08:11:22 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-void	init_values(t_game *game)
+static void	init_mlx_window(t_game *game)
+{
+	game->mlx = NULL;
+	game->window = NULL;
+	game->img = NULL;
+}
+
+static void	init_map(t_game *game)
+{
+	ft_bzero(&game->map, sizeof(t_map));
+}
+
+static void	init_parser_textures(t_game *game)
 {
 	int	i;
 
-	game->map.file = NULL;
-	game->map.cpyfile = NULL;
-	game->map.length = 0;
-	game->map.width = 0;
-	game->map.floor = 0;
-	game->map.wall = 0;
-	game->map.player = 0;
 	i = -1;
-    while (++i < 4)
-        game->parser.imgsidewall[i] = NULL;
-    i = -1;
-    while (++i < 2)
-    {
-        game->parser.rgb[i].r = -1;
-        game->parser.rgb[i].g = -1;
-        game->parser.rgb[i].b = -1;
-    }
-	game->player.x = 0.0;
-	game->player.y = 0.0;
-	game->player.dir_x = 0.0;
-	game->player.dir_y = 0.0;
-	game->player.plane_x = 0.0;
-	game->player.plane_y = 0.0;
+	while (++i < 4)
+		game->parser.imgsidewall[i] = NULL;
+}
+
+static void	init_parser_rgb(t_game *game)
+{
+	int	i;
+
+	i = -1;
+	while (++i < 2)
+	{
+		game->parser.rgb[i].r = -1;
+		game->parser.rgb[i].g = -1;
+		game->parser.rgb[i].b = -1;
+	}
+}
+
+static void	init_player(t_game *game)
+{
+	ft_bzero(&game->player, sizeof(t_player));
+}
+
+void	init_values(t_game *game)
+{
+	init_mlx_window(game);
+	init_map(game);
+	init_parser_textures(game);
+	init_parser_rgb(game);
+	init_player(game);
 }

@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/04 07:56:39 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/04 08:17:02 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	check_extension(char *av)
 void	get_file(t_game *game, char *file_map)
 {
 	init_values(game);
-	game->map.file = NULL;
 	game->map.file = read_map(file_map);
 	parse_file(game, game->map.file);
 	game->map.cpyfile = ft_arrdup(game->map.file);
@@ -124,6 +123,8 @@ TODO
 
 PARSER
 chequear que haya mapa. (SEGFAULT si no hay mapa en el file)
+probablemente necesrio cambiar get_map
+
 chequear que haya rgb. SEGFAULT igual que con el mapa.
 con los paths no pasa
 
