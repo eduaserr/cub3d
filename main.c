@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/04 08:17:02 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/06 06:35:03 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	ft_printrgb(t_game *game)
 void	ft_error2(char *str)
 {
 	ft_printf("\x1b[31m%s\x1B[37m%s\n", "Error : ", str);
-	exit(EXIT_FAILURE);
 }
 
 void	ft_error(char *str)
@@ -93,25 +92,35 @@ void	free_all(t_game *game)
 	game->map.map = NULL;
 }
 
+void	print_all(t_game *game)
+{
+	int	i;
+
+	ft_printmatrix(game->map.file);
+	ft_printmatrix(game->map.cpyfile);
+	ft_printmatrix(game->map.map);
+	i = 0;
+	while (i < 4)
+		ft_printlines(game->parser.imgsidewall[i++]);
+	ft_printrgb(game);
+	
+}
+
 int	main(int ac, char **av)
 {
+	//t_game	game = {0};
 	t_game	game;
 
 	if (ac != 2 || check_extension(av[1]))
 		ft_error("invalid arguments, map name/extension");
 	get_file(&game, av[1]);
-	ft_printmatrix(game.map.file);
 	init_player(&game);
 	printf("Posición jugador: x=%f, y=%f\n", game.player.x, game.player.y);
 	printf("Dirección jugador: dir_x=%f, dir_y=%f\n", game.player.dir_x, game.player.dir_y);
-	int i = 0;
-	while (i < 4)
-		ft_printlines(game.parser.imgsidewall[i++]);
-	ft_printrgb(&game);
+	print_all(&game);
 	init_mlx(&game);
 	draw_map(&game);
 	mlx_loop(game.mlx);
-	ft_printmatrix(game.map.map);
 	free_all(&game);
 	return 0;
 }
@@ -122,13 +131,9 @@ int	main(int ac, char **av)
 TODO
 
 PARSER
-chequear que haya mapa. (SEGFAULT si no hay mapa en el file)
-probablemente necesrio cambiar get_map
-
-chequear que haya rgb. SEGFAULT igual que con el mapa.
-con los paths no pasa
-
-despues seguir con comprobacion demapa. 
+comprobar que el path de la textura está completo.
+leak en parsergb si le pasas un rgb incompleto
+seguir con comprobacion demapa. 
 bordes, entidades...
 
 En el chequeo guardar valores necesarios para la ejecucion

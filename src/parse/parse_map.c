@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/04 07:22:53 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/06 03:03:39 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	is_empty_line(char *line)
 	i = 0;
 	while (line[i])
 	{
-		if (!ft_isspace(line[i]) && line[i] != '\n')
+		if (!ft_isspace(line[i]))
 			return (0);
 		i++;
 	}
@@ -45,7 +45,7 @@ static int	is_map_line(char *line)
 	{
 		if (line[i] == '1' || line[i] == '0')
 			has_wall = 1;
-		else if (!is_map_char(line[i]) && line[i] != '\n')
+		else if (!is_map_char(line[i]))
 			return (0);
 		i++;
 	}
@@ -71,9 +71,11 @@ void	get_map(t_game *game, char **file)
 	while (j >= 0)
 	{
 		if (!is_map_line(file[j]))
-			break;
+			break ;
 		j--;
 	}
+	if (j == i)
+		return ;
 	start = j + 1;
 	// Copiar desde start hasta i
 	game->map.length = i - start + 1;
@@ -96,7 +98,7 @@ void	parse_file(t_game *game, char **file)
 	get_colors(game, file);
 	// Validar que todos los colores fueron parseados
 	if (game->parser.rgb[F].b == -1 || game->parser.rgb[C].b == -1)
-		return (free_all(game), ft_error("Missing texture(s)"));
+		return (free_all(game), ft_error("Missing colors(s)"));
 	get_map(game, file);
 	if (!game->map.map)
 		return (free_all(game), ft_error("Missing map"));

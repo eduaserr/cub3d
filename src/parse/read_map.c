@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/04 07:32:00 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/06 02:22:45 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,13 @@ static char	*get_line(int fd, int *len)
 static char	**check_superline(char *superline)
 {
 	char	**map;
+	int		i;
 
+	i = 0;
+	while (ft_isspace(superline[i]))
+		i++;
 	// Comprueba inicio del mapa
-	if (!superline || !superline[0] || superline[0] == '\n')
+	if (!superline || !superline[0] || !superline[i])
 		return (free(superline), ft_error("Empty map or line error"), NULL);
 	map = ft_split(superline, '\n');
 	if (!map)

@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:12 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/04 08:11:22 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/06 01:42:54 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	init_parser_rgb(t_game *game)
 	}
 }
 
-static void	init_player(t_game *game)
+static void	init_plyr(t_game *game)
 {
 	ft_bzero(&game->player, sizeof(t_player));
 }
@@ -57,5 +57,5 @@ void	init_values(t_game *game)
 	init_map(game);
 	init_parser_textures(game);
 	init_parser_rgb(game);
-	init_player(game);
+	init_plyr(game);
 }
