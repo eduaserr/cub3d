@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 18:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/04 07:13:59 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/06 16:11:56 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static int	parse_value(char *str, int *i)
 	while (str[*i] && (ft_isspace(str[*i]) || str[*i] == ','))
 		(*i)++;
 	if (!ft_isdigit(str[*i]))
-		ft_error("Invalid RGB format");
+		return (ft_error2("Invalid RGB format"), -1);
 	value = ft_atoi(&str[*i]);
 	if (value < 0 || value > 255)
-		ft_error("RGB value must be between 0-255");
+		return (ft_error2("RGB value must be between 0-255"), -1);
 	while (str[*i] && ft_isdigit(str[*i]))
 		(*i)++;
 	return (value);

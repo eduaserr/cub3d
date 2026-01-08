@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/06 06:35:03 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/06 19:45:42 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,8 +132,8 @@ TODO
 
 PARSER
 comprobar que el path de la textura está completo.
-leak en parsergb si le pasas un rgb incompleto
-seguir con comprobacion demapa. 
+leak en parsergb si le pasas un rgb incompleto (solved)
+seguir con comprobacion demapa.
 bordes, entidades...
 
 En el chequeo guardar valores necesarios para la ejecucion
