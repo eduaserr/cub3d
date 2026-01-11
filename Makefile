@@ -6,7 +6,7 @@
 #    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/13 03:22:17 by eduaserr          #+#    #+#              #
-#    Updated: 2026/01/04 07:51:19 by eduaserr         ###   ########.fr        #
+#    Updated: 2026/01/11 18:45:44 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,21 +21,19 @@ HEADERS	:= -I ./inc -I $(LIBMLX)/include/MLX42
 LIBS	:= -L $(LIB) -lft -L $(LIBMLX)/build/ -lmlx42 -ldl -lglfw -pthread -lm
 RM		= rm -rf
 
+EXEC	= src/exec/
+FREE	= src/free/
 INIT	= src/init/
 PARSE	= src/parse/
-EXEC	= src/exec/
+PRINT	= src/print/
 
 ### SRCS ###
 SRC		= main.c
-SRCS	= $(INIT)init.c \
-		  $(INIT)init_mlx.c \
-		  $(INIT)init_player.c \
-		  $(PARSE)read_map.c \
-		  $(PARSE)parse_map.c \
-		  $(PARSE)parse_textures.c \
-		  $(PARSE)parse_colors.c \
-		  $(PARSE)parse_utils.c \
-		  $(EXEC)draw_map.c \
+SRCS	= $(INIT)init.c $(INIT)init_mlx.c $(INIT)init_player.c \
+		$(EXEC)draw_map.c \
+		$(FREE)free.c \
+		$(PARSE)read_map.c $(PARSE)parse_map.c $(PARSE)parse_textures.c $(PARSE)parse_colors.c $(PARSE)parse_utils.c \
+		$(PRINT)print.c
 
 ### OBJS ###
 OBJS	= $(SRC:.c=.o) $(SRCS:.c=.o)
