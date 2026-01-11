@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_player.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/11 17:44:17 by eduaserr          #+#    #+#             */
+/*   Updated: 2026/01/11 17:44:44 by eduaserr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/cub3d.h"
 
 static void set_player_dir(t_player *p, char c)
@@ -50,7 +62,7 @@ static void set_plane(t_player *p, char c)
 
 }
 
-static int  is_player(t_game *game, int y, int x)
+static int is_player(t_game *game, int y, int x)
 {
     char    c;
     c = game->map.map[y][x];
