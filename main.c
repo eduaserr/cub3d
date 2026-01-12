@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/12 02:40:38 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:26:04 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,12 @@ int	main(int ac, char **av)
 TODO
 
 PARSER
-comprobar que el path de la textura está completo.
+comprobar que el path de la textura está completo. (solved, creo. need probar mas casos)
 leak en parsergb si le pasas un rgb incompleto (solved)
 seguir con comprobacion demapa.
 bordes, entidades...
 
-En el chequeo guardar valores necesarios para la ejecucion
+En el chequeo guardar valores necesarios para facilitar la ejecucion
 
 
 SIEMPRE comprobar mallocs y memoria sin liberar.

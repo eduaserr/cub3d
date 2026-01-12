@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/12 03:54:24 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:20:50 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 static int	parse_path(char *path)
 {
+	int	fd;
+
+	fd = 0;
 	if (check_extension(path, ".png"))
 		return (1);
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+		return (ft_error2("File does not exist"), 1);
+	close(fd);
 	return (0);
 }
 
