@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/12 14:26:04 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/12 17:34:26 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,11 @@ En el chequeo guardar valores necesarios para facilitar la ejecucion
 
 SIEMPRE comprobar mallocs y memoria sin liberar.
 Liberar en todas las salidas de error.
-Liberar al final de la ejecucion.
+
+ft_error(char *str) muestra el mensaje(str) deseado y hace exit() dentro de la funcion,
+por lo que se debe liberar todo lo necesario justo antes de llamar a esta funcion.
+NO EDITAR ft_error().
+ft_error2() simplemente muestra un mensaje de error pero no sale del programa
+
+Liberar al final de la ejecucion. Gestión de ventanas y mlx.
 */
