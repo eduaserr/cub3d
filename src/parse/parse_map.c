@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/06 03:03:39 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/12 01:56:24 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,24 @@ static int	is_map_line(char *line)
 	return (has_wall);
 }
 
+static void	find_map(char **file, int *i, int *j)
+{
+	while (file[*i])
+		(*i)++;
+	(*i)--;
+	// Saltar líneas vacías del final
+	while (*i >= 0 && is_empty_line(file[*i]))
+		(*i)--;
+	// Retroceder mientras sea mapa válido
+	*j = *i;
+	while (*j >= 0)
+	{
+		if (!is_map_line(file[*j]))
+			break ;
+		(*j)--;
+	}
+}
+
 void	get_map(t_game *game, char **file)
 {
 	int	i;
@@ -60,20 +78,7 @@ void	get_map(t_game *game, char **file)
 
 	// Encontrar última línea
 	i = 0;
-	while (file[i])
-		i++;
-	i--;
-	// Saltar líneas vacías del final
-	while (i >= 0 && is_empty_line(file[i]))
-		i--;
-	// Retroceder mientras sea mapa válido
-	j = i;
-	while (j >= 0)
-	{
-		if (!is_map_line(file[j]))
-			break ;
-		j--;
-	}
+	find_map(file, &i, &j);
 	if (j == i)
 		return ;
 	start = j + 1;
@@ -86,23 +91,4 @@ void	get_map(t_game *game, char **file)
 	while (start <= i)
 		game->map.map[j++] = ft_strdup(file[start++]);
 	game->map.map[j] = NULL;
-}
-
-void	parse_file(t_game *game, char **file)
-{
-	get_sidetxt(game, file);
-	// Validar que todas las texturas existen
-	if (!game->parser.imgsidewall[NORTH] || !game->parser.imgsidewall[EAST]
-		|| !game->parser.imgsidewall[SOUTH] || !game->parser.imgsidewall[WEST])
-		return (free_all(game), ft_error("Missing texture(s)"));
-	get_colors(game, file);
-	// Validar que todos los colores fueron parseados
-	if (game->parser.rgb[F].b == -1 || game->parser.rgb[C].b == -1)
-		return (free_all(game), ft_error("Missing colors(s)"));
-	get_map(game, file);
-	if (!game->map.map)
-		return (free_all(game), ft_error("Missing map"));
-	//check_borders();
-	//check_entities();
-	//valid_path();
 }

@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/11 18:00:21 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/12 03:50:20 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,16 @@ typedef struct s_game
 	t_player	player;
 }		t_game;
 
+
+/* ************************************************************************** */
+/*                                  MAIN                                      */
+/* ************************************************************************** */
+int	check_extension(char *av, char *str);
+
 /* ************************************************************************** */
 /*                                  FREE                                      */
 /* ************************************************************************** */
+void	free_parser(t_game *game);
 void	free_all(t_game *game);
 
 /* ************************************************************************** */
@@ -105,6 +112,7 @@ char	**read_map(char *file_map);
 void	parse_file(t_game *game, char **map);
 void	get_sidetxt(t_game *game, char **map);
 void	get_colors(t_game *game, char **map);
+void	get_map(t_game *game, char **file);
 int		get_type(char *line, char **sides, int len);
 char	*get_path(char *line);
 
@@ -114,12 +122,7 @@ char	*get_path(char *line);
 void	draw_map(t_game *game);
 
 /* ************************************************************************** */
-/*                                  UTILS                                     */
-/* ************************************************************************** */
-void	free_all(t_game *game);
-
-/* ************************************************************************** */
-/*                                  UTILS                                     */
+/*                                  PRINT                                     */
 /* ************************************************************************** */
 void	ft_error(char *str);
 void	ft_error2(char *str);

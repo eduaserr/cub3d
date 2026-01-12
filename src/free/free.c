@@ -6,13 +6,13 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:43:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/11 17:43:11 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/12 03:49:47 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-static void	free_parser(t_game *game)
+void	free_parser(t_game *game)
 {
 	int	i;
 

@@ -6,13 +6,13 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/11 17:52:46 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/12 02:40:38 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/cub3d.h"
 
-int	check_extension(char *av)
+int	check_extension(char *av, char *str)
 {
 	int	len;
 
@@ -21,7 +21,7 @@ int	check_extension(char *av)
 		len--;
 	if (len == 4)
 		return (1);
-	else if (ft_strncmp(&av[len - 4], ".cub", 4) == 0)
+	else if (ft_strncmp(&av[len - 4], str, 4) == 0)
 		return (0);
 	return (1);
 }
@@ -44,7 +44,7 @@ int	main(int ac, char **av)
 	//t_game	game = {0};
 	t_game	game;
 
-	if (ac != 2 || check_extension(av[1]))
+	if (ac != 2 || check_extension(av[1], ".cub"))
 		ft_error("invalid arguments, map name/extension");
 	get_file(&game, av[1]);
 	init_player(&game);

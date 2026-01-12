@@ -6,7 +6,7 @@
 #    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/13 03:22:17 by eduaserr          #+#    #+#              #
-#    Updated: 2026/01/11 18:45:44 by eduaserr         ###   ########.fr        #
+#    Updated: 2026/01/11 23:57:37 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SRC		= main.c
 SRCS	= $(INIT)init.c $(INIT)init_mlx.c $(INIT)init_player.c \
 		$(EXEC)draw_map.c \
 		$(FREE)free.c \
-		$(PARSE)read_map.c $(PARSE)parse_map.c $(PARSE)parse_textures.c $(PARSE)parse_colors.c $(PARSE)parse_utils.c \
+		$(PARSE)read_map.c $(PARSE)parse_file.c $(PARSE)parse_map.c $(PARSE)parse_textures.c $(PARSE)parse_colors.c $(PARSE)parse_utils.c \
 		$(PRINT)print.c
 
 ### OBJS ###
