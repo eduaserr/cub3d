@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/12 12:20:50 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:37:04 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,11 @@ void	get_sidetxt(t_game *game, char **file)
 		type = get_type(file[i], sides, 4);
 		if (type != -1)
 		{
-			// Ya existe?
 			if (game->parser.imgsidewall[type])
 				return (ft_error2("Duplicate texture definition"));
 			game->parser.imgsidewall[type] = get_path(file[i]);
 			if (!game->parser.imgsidewall[type])
 				return (ft_error2("Memory allocation imgsidewall"));
-			// chequear si no hay path (NO ''). allocated memory
-			ft_printf("Path extraído: '%s'\n", game->parser.imgsidewall[type]); // DEBUG
 			if (parse_path(game->parser.imgsidewall[type]))
 				return (free_parser(game), ft_error2("Side image path"));
 			count++;

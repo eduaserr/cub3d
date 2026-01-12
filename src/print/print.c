@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:51:32 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/11 17:53:07 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:41:26 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,11 @@ void	print_all(t_game *game)
 {
 	int	i;
 
-	ft_printmatrix(game->map.file);
-	ft_printmatrix(game->map.cpyfile);
+	//ft_printmatrix(game->map.file);
+	//ft_printmatrix(game->map.cpyfile);
+	ft_printf("\nPRINT MAP MATRIX\n");
 	ft_printmatrix(game->map.map);
+	ft_printf("\nPRINT PARSER STRUCT\n");
 	i = 0;
 	while (i < 4)
 		ft_printlines(game->parser.imgsidewall[i++]);
