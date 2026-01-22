@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 20:43:55 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/23 00:01:23 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/23 00:27:20 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	check_borders(char **map, int len)
 	while (i < len)
 	{
 		j = 0;
-		while (map[i] && map[i][j])
+		while (map[i][j])
 		{
 			if (is_playable(map[i][j]))
 			{
