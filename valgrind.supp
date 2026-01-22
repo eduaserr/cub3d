@@ -1,0 +1,115 @@
+{
+   GTK_FontConfig_Leak_1
+   Memcheck:Leak
+   ...
+   obj:*/libfontconfig.so*
+}
+
+{
+   GTK_FontConfig_Leak_2
+   Memcheck:Leak
+   ...
+   obj:*/libpango*.so*
+}
+
+{
+   GTK_Glib_Leak
+   Memcheck:Leak
+   ...
+   obj:*/libglib-2.0.so*
+}
+
+{
+   GTK_GObject_Leak
+   Memcheck:Leak
+   ...
+   obj:*/libgobject-2.0.so*
+}
+
+{
+   GTK_Widget_Leak
+   Memcheck:Leak
+   ...
+   obj:*/libgtk-3.so*
+}
+
+{
+   GTK_GDK_Leak
+   Memcheck:Leak
+   ...
+   obj:*/libgdk-3.so*
+}
+
+{
+   GTK_Cairo_Leak
+   Memcheck:Leak
+   ...
+   obj:*/libpangocairo*.so*
+}
+
+{
+   GTK_Rsvg_Leak
+   Memcheck:Leak
+   ...
+   obj:*/librsvg-2.so*
+}
+
+{
+   GLFW_Window_Leak
+   Memcheck:Leak
+   ...
+   fun:glfwCreateWindow
+}
+
+{
+   GLFW_Init_Leak
+   Memcheck:Leak
+   ...
+   obj:*/libglfw.so*
+}
+
+{
+   GIO_DBus_Thread_Leak
+   Memcheck:Leak
+   ...
+   obj:*/libgio-2.0.so*
+}
+
+{
+   Pthread_Thread_Leak
+   Memcheck:Leak
+   fun:calloc
+   ...
+   fun:allocate_dtv
+   fun:_dl_allocate_tls
+   fun:pthread_create*
+}
+
+{
+   TLS_Get_Addr_Leak
+   Memcheck:Leak
+   fun:malloc
+   ...
+   fun:__tls_get_addr
+}
+
+{
+   Expat_XML_Leak
+   Memcheck:Leak
+   ...
+   obj:*/libexpat.so*
+}
+
+{
+   XML2_Parse_Leak
+   Memcheck:Leak
+   ...
+   obj:*/libxml2.so*
+}
+
+{
+   GdkPixbuf_Loader_Leak
+   Memcheck:Leak
+   ...
+   fun:gdk_pixbuf_loader_close
+}

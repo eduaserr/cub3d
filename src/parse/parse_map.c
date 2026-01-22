@@ -6,13 +6,13 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/12 01:56:24 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/16 02:29:44 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-static int	is_map_char(char c)
+static int	valid_entities(char c)
 {
 	return (c == '0' || c == '1' || c == 'N' || c == 'S' 
 		|| c == 'E' || c == 'W' || ft_isspace(c));
@@ -45,7 +45,7 @@ static int	is_map_line(char *line)
 	{
 		if (line[i] == '1' || line[i] == '0')
 			has_wall = 1;
-		else if (!is_map_char(line[i]))
+		else if (!valid_entities(line[i]))
 			return (0);
 		i++;
 	}

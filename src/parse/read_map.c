@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/06 02:22:45 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/16 01:52:52 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static char	**check_superline(char *superline)
 	map = ft_split(superline, '\n');
 	if (!map)
 		return (free(superline), ft_error("Split map error"), NULL);
-	// Check surrounded by walls
 	return (map);
 }
 

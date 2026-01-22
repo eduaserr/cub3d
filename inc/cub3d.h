@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/12 20:05:39 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/22 19:43:20 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@
 enum dir
 {
 	NORTH = 0,
-	SOUTH = 1,
-	EAST = 2,
-	WEST = 3,
+	SOUTH,
+	EAST,
+	WEST
 };
 
 enum rgb

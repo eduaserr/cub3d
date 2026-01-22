@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/12 14:37:04 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/16 01:50:44 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ static int	parse_path(char *path)
 	return (0);
 }
 
+static void	init_sides(char **sides)
+{
+	sides[NORTH] = "NO";
+	sides[SOUTH] = "SO";
+	sides[WEST] = "WE";
+	sides[EAST] = "EA";
+}
+
 void	get_sidetxt(t_game *game, char **file)
 {
 	int		i;
@@ -33,12 +41,9 @@ void	get_sidetxt(t_game *game, char **file)
 	int		count;
 	char	*sides[4];
 
-	sides[NORTH] = "NO";
-	sides[SOUTH] = "SO";
-	sides[WEST] = "WE";
-	sides[EAST] = "EA";
 	i = -1;
 	count = 0;
+	init_sides(sides);
 	while (file[++i] && count < 4)
 	{
 		type = get_type(file[i], sides, 4);

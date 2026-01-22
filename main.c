@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/12 17:34:26 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/20 21:35:41 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,14 @@ seguir con comprobacion demapa.
 bordes, entidades...
 
 En el chequeo guardar valores necesarios para facilitar la ejecucion
+si hay 0, comprueba las paredes alrededor.
 
+
+   1     1111111111111111111111111
+        1000000000110000000000001
+        1111111111111111111111111
+  
+¿Que sucede si hay una pared suelta fuera del mapa?
 
 SIEMPRE comprobar mallocs y memoria sin liberar.
 Liberar en todas las salidas de error.
@@ -79,6 +86,8 @@ ft_error(char *str) muestra el mensaje(str) deseado y hace exit() dentro de la f
 por lo que se debe liberar todo lo necesario justo antes de llamar a esta funcion.
 NO EDITAR ft_error().
 ft_error2() simplemente muestra un mensaje de error pero no sale del programa
+
+cambiar disposicion de los mensajes de errores, debe ser Error\n.
 
 Liberar al final de la ejecucion. Gestión de ventanas y mlx.
 */

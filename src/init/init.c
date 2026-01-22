@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:12 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/06 01:42:54 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/16 02:04:09 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ static void	init_mlx_window(t_game *game)
 	game->mlx = NULL;
 	game->window = NULL;
 	game->img = NULL;
-}
-
-static void	init_map(t_game *game)
-{
-	ft_bzero(&game->map, sizeof(t_map));
 }
 
 static void	init_parser_textures(t_game *game)
@@ -54,7 +49,7 @@ static void	init_plyr(t_game *game)
 void	init_values(t_game *game)
 {
 	init_mlx_window(game);
-	init_map(game);
+	ft_bzero(&game->map, sizeof(t_map));
 	init_parser_textures(game);
 	init_parser_rgb(game);
 	init_plyr(game);
