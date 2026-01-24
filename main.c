@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/20 21:35:41 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/24 19:33:17 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,12 @@ En el chequeo guardar valores necesarios para facilitar la ejecucion
 si hay 0, comprueba las paredes alrededor.
 
 
-   1     1111111111111111111111111
+   1     1111111111111111111111111		(mapa valido)
         1000000000110000000000001
         1111111111111111111111111
   
 ¿Que sucede si hay una pared suelta fuera del mapa?
+valido
 
 SIEMPRE comprobar mallocs y memoria sin liberar.
 Liberar en todas las salidas de error.

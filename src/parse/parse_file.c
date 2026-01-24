@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 20:43:55 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/23 00:27:20 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/24 22:22:59 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	parse_file(t_game *game, char **file)
 		return (free_all(game), ft_error("Missing colors(s)"));
 	get_map(game, file);
 	if (!game->map.map)
-		return (free_all(game), ft_error("Missing map"));
+		return (free_all(game), ft_error("Invalid map"));
 	check_map(game, game->map.map);
 	if (!game->map.map)
 		return (free_all(game), ft_error("Check map"));

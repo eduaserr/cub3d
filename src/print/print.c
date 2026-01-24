@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:51:32 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/12 14:41:26 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/24 22:49:52 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 void	ft_error2(char *str)
 {
+	ft_printf("\x1b[31m%s\x1B[37m%s\n", "Error");
 	ft_printf("\x1b[31m%s\x1B[37m%s\n", "Error : ", str);
 }
 
 void	ft_error(char *str)
 {
+	ft_printf("\x1b[31m%s\x1B[37m%s\n", "Error");
 	ft_printf("\x1b[31m%s\x1B[37m%s\n", "Error : ", str);
 	exit(EXIT_FAILURE);
 }
