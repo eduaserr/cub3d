@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/22 19:43:20 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/27 16:54:04 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,6 +197,49 @@ void	get_colors(t_game *game, char **map);
  * @param file Array of strings containing the map file content
  */
 void	get_map(t_game *game, char **file);
+
+/**
+ * @brief Finds the start and end indices of the map in the file.
+ * Scans the file array to locate map boundaries.
+ * 
+ * @param file Array of strings containing the file content
+ * @param i Pointer to store end index
+ * @param j Pointer to store start index
+ * @return 0 on success, -1 on error
+ */
+int		find_map(char **file, int *i, int *j);
+
+/**
+ * @brief Validates if a character is allowed in the map.
+ * 
+ * @param c Character to validate
+ * @return 1 if valid, 0 if invalid
+ */
+int		valid_char(char c);
+
+/**
+ * @brief Checks if a line is empty or contains only spaces.
+ * 
+ * @param line Line to check
+ * @return 1 if empty, 0 otherwise
+ */
+int		is_empty_line(char *line);
+
+/**
+ * @brief Determines if a line belongs to the map.
+ * 
+ * @param line Line to analyze
+ * @return 1 if map line, 0 if not, -1 on error
+ */
+int		is_map_line(char *line);
+
+/**
+ * @brief Validates all characters in a map line.
+ * 
+ * @param line Line to validate
+ * @return 1 if valid, 0 if invalid
+ */
+int		validate_line(char *line);
 
 /**
  * @brief Identifies the type of configuration line.

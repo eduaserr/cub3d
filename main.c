@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/24 19:33:17 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/25 19:40:34 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ comprobar que el path de la textura está completo. (solved, creo. need probar m
 leak en parsergb si le pasas un rgb incompleto (solved)
 seguir con comprobacion demapa.
 bordes, entidades...
+
+Debo de mantener las lienas vacias dentro del mapa (culpa de gnl -> split) se salta las lineas vacias ""
 
 En el chequeo guardar valores necesarios para facilitar la ejecucion
 si hay 0, comprueba las paredes alrededor.

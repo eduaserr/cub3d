@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_map.c                                        :+:      :+:    :+:   */
+/*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,29 +12,62 @@
 
 #include "../../inc/cub3d.h"
 
-void	get_map(t_game *game, char **file)
+int	valid_char(char c)
+{
+	return (c == '0' || c == '1' || c == 'N' || c == 'S' 
+		|| c == 'E' || c == 'W' || c == ' ');
+}
+
+int	is_empty_line(char *line)
 {
 	int	i;
-	int	j;
-	int	start;
+
+	if (!line || !line[0])
+		return (1);
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	is_map_line(char *line)
+{
+	int	i;
+	int	has_wall;
+
+	if (is_empty_line(line))
+		return (0);
+	i = 0;
+	has_wall = 0;
+	while (line[i])
+	{
+		if (line[i] == '1' || line[i] == '0')
+			has_wall = 1;
+		else if (!valid_char(line[i]))
+		{
+			if (has_wall)
+				return (ft_error2("Invalid character in map"), -1);
+			return (0);
+		}
+		i++;
+	}
+	return (has_wall);
+}
+
+int	validate_line(char *line)
+{
+	int	i;
 
 	i = 0;
-	if (find_map(file, &i, &j) == -1)
-		return ;
-	start = j;
-	game->map.length = i - start + 1;
-	game->map.map = ft_calloc(game->map.length + 1, sizeof(char *));
-	if (!game->map.map)
-		return (ft_error2("calloc allocation error"));
-	j = 0;
-	while (start <= i)
+	while (line[i])
 	{
-		if (!validate_line(file[start]))
-		{
-			ft_freematrix(&game->map.map);
-			return (ft_error2("Invalid character in map"));
-		}
-		game->map.map[j++] = ft_strdup(file[start++]);
+		if (!valid_char(line[i]))
+			return (ft_error2("Invalid character in map"), 0);
+		i++;
 	}
-	game->map.map[j] = NULL;
+	return (1);
 }
