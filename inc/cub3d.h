@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/27 17:38:42 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/27 22:55:15 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ void	init_values(t_game *game);
  * 
  * @param game Pointer to game structure
  */
-void	init_player(t_game *game);
+int init_player(t_game *game);
 
 /**
  * @brief Initializes MLX library and creates window.
@@ -152,6 +152,8 @@ void	init_mlx(t_game *game);
 /* ************************************************************************** */
 /*                                  PARSE                                     */
 /* ************************************************************************** */
+
+int	is_player(char c);
 
 /**
  * @brief Reads the map file and returns it as a string array.
@@ -210,14 +212,6 @@ void	get_map(t_game *game, char **file);
 int		find_map(char **file, int *i, int *j);
 
 /**
- * @brief Validates if a character is allowed in the map.
- * 
- * @param c Character to validate
- * @return 1 if valid, 0 if invalid
- */
-int		valid_char(char c);
-
-/**
  * @brief Checks if a line is empty or contains only spaces.
  * 
  * @param line Line to check
@@ -232,51 +226,6 @@ int		is_empty_line(char *line);
  * @return 1 if map line, 0 if not, -1 on error
  */
 int		is_map_line(char *line);
-
-/**
- * @brief Validates all characters in a map line.
- * 
- * @param line Line to validate
- * @return 1 if valid, 0 if invalid
- */
-int		validate_line(char *line);
-
-/**
- * @brief Checks if a character is playable (can be walked on).
- * 
- * @param c Character to check
- * @return 1 if playable, 0 otherwise
- */
-int		is_playable(char c);
-
-/**
- * @brief Checks if a character is non-playable (space).
- * 
- * @param c Character to check
- * @return 1 if non-playable, 0 otherwise
- */
-int		is_nonplayable(char c);
-
-/**
- * @brief Gets a tile character at specific coordinates.
- * 
- * @param map Map array
- * @param y Y coordinate
- * @param x X coordinate
- * @return Character at position or space if out of bounds
- */
-char	get_tile(char **map, int y, int x);
-
-/**
- * @brief Checks if tiles around a position are valid.
- * 
- * @param map Map array
- * @param y Y coordinate
- * @param x X coordinate
- * @param len Map length
- * @return 0 if valid, 1 if error
- */
-int		check_tiles(char **map, int y, int x, int len);
 
 /**
  * @brief Validates map borders are properly closed.

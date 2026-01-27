@@ -6,13 +6,13 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/27 17:36:07 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/27 22:22:11 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-int	valid_char(char c)
+static int	valid_char(char c)
 {
 	return (c == '0' || c == '1' || c == 'N' || c == 'S' 
 		|| c == 'E' || c == 'W' || c == ' ');
@@ -56,18 +56,4 @@ int	is_map_line(char *line)
 		i++;
 	}
 	return (has_wall);
-}
-
-int	validate_line(char *line)
-{
-	int	i;
-
-	i = 0;
-	while (line[i])
-	{
-		if (!valid_char(line[i]))
-			return (ft_error2("Invalid character in map"), 0);
-		i++;
-	}
-	return (1);
 }
