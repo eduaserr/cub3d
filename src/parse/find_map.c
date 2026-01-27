@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 00:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/27 16:54:04 by eduaserr         ###   ########.fr       */
+/*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
+/*   Updated: 2026/01/27 17:23:49 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	find_end(char **file)
 	return (i);
 }
 
-static int	scan_backwards(char **file, int i, int *found_map)
+static int	find_start(char **file, int i, int *found_map)
 {
 	int	j;
 	int	result;
@@ -46,12 +46,12 @@ static int	scan_backwards(char **file, int i, int *found_map)
 	return (j);
 }
 
-static int	trim_start(char **file, int i, int j)
+static int	skip_emptylines(char **file, int start, int end)
 {
-	j++;
-	while (j <= i && is_empty_line(file[j]))
-		j++;
-	return (j);
+	end++;
+	while (end <= start && is_empty_line(file[end]))
+		end++;
+	return (end);
 }
 
 int	find_map(char **file, int *i, int *j)
@@ -59,10 +59,10 @@ int	find_map(char **file, int *i, int *j)
 	int	found_map;
 
 	*i = find_end(file);
-	*j = scan_backwards(file, *i, &found_map);
+	*j = find_start(file, *i, &found_map);
 	if (*j == -1)
 		return (-1);
-	*j = trim_start(file, *i, *j);
+	*j = skip_emptylines(file, *i, *j);
 	if (!found_map || *j > *i)
 		return (-1);
 	return (0);

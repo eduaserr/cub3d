@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/27 16:54:04 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/27 17:38:42 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,6 +240,52 @@ int		is_map_line(char *line);
  * @return 1 if valid, 0 if invalid
  */
 int		validate_line(char *line);
+
+/**
+ * @brief Checks if a character is playable (can be walked on).
+ * 
+ * @param c Character to check
+ * @return 1 if playable, 0 otherwise
+ */
+int		is_playable(char c);
+
+/**
+ * @brief Checks if a character is non-playable (space).
+ * 
+ * @param c Character to check
+ * @return 1 if non-playable, 0 otherwise
+ */
+int		is_nonplayable(char c);
+
+/**
+ * @brief Gets a tile character at specific coordinates.
+ * 
+ * @param map Map array
+ * @param y Y coordinate
+ * @param x X coordinate
+ * @return Character at position or space if out of bounds
+ */
+char	get_tile(char **map, int y, int x);
+
+/**
+ * @brief Checks if tiles around a position are valid.
+ * 
+ * @param map Map array
+ * @param y Y coordinate
+ * @param x X coordinate
+ * @param len Map length
+ * @return 0 if valid, 1 if error
+ */
+int		check_tiles(char **map, int y, int x, int len);
+
+/**
+ * @brief Validates map borders are properly closed.
+ * 
+ * @param map Map array
+ * @param len Map length
+ * @return 0 if valid, 1 if error
+ */
+int		check_borders(char **map, int len);
 
 /**
  * @brief Identifies the type of configuration line.
