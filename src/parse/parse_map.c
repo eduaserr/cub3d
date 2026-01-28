@@ -6,45 +6,11 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/27 23:28:55 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/27 17:36:25 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
-
-int	is_player(char c)
-{
-	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
-}
-
-int	find_player(t_game *game)
-{
-	int	y;
-	int	x;
-	int	count;
-
-	y = -1;
-	count = 0;
-	while (++y < game->map.length)
-	{
-		x = 0;
-		while (game->map.map[y][x])
-		{
-			if (is_player(game->map.map[y][x]))
-			{
-				game->player.x = x;
-				game->player.y = y;
-				count++;
-				if (count > 1)
-					return (ft_error2("Multiple players in map"), 0);
-			}
-			x++;
-		}
-	}
-	if (count == 0)
-		return (ft_error2("Player not found in map"), 0);
-	return (1);
-}
 
 void	get_map(t_game *game, char **file)
 {
@@ -62,8 +28,13 @@ void	get_map(t_game *game, char **file)
 		return (ft_error2("calloc allocation error"));
 	j = 0;
 	while (start <= i)
+	{
+		if (!validate_line(file[start]))
+		{
+			ft_freematrix(&game->map.map);
+			return (ft_error2("Invalid character in map"));
+		}
 		game->map.map[j++] = ft_strdup(file[start++]);
+	}
 	game->map.map[j] = NULL;
-	if (!find_player(game))
-		ft_freematrix(&game->map.map);
 }

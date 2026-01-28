@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/27 22:56:07 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/28 02:55:36 by paularuizal      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,8 @@ int	main(int ac, char **av)
 	init_player(&game);
 	printf("Posición jugador: x=%f, y=%f\n", game.player.x, game.player.y);
 	printf("Dirección jugador: dir_x=%f, dir_y=%f\n", game.player.dir_x, game.player.dir_y);
-	print_all(&game);
+	//print_all(&game);
 	init_mlx(&game);
-	draw_map(&game);
 	mlx_loop(game.mlx);
 	free_all(&game);
 	return 0;

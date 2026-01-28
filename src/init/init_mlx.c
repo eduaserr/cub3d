@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:43:41 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/11 17:43:49 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/27 18:17:08 by paularuizal      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void	init_mlx(t_game *game)
 	if (!game->img)
 		ft_error("Image MLX creation failed");
 	mlx_image_to_window(game->mlx, game->img, 0, 0);
+	mlx_loop_hook(game->mlx, render, game);
 }
