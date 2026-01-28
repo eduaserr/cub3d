@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/28 02:55:36 by paularuizal      ###   ########.fr       */
+/*   Updated: 2026/01/28 20:38:07 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	main(int ac, char **av)
 	printf("Dirección jugador: dir_x=%f, dir_y=%f\n", game.player.dir_x, game.player.dir_y);
 	//print_all(&game);
 	init_mlx(&game);
+	draw_map(&game);
 	mlx_loop(game.mlx);
 	free_all(&game);
 	return 0;
@@ -66,9 +67,9 @@ PARSER
 comprobar que el path de la textura está completo. (solved, creo. need probar mas casos)
 leak en parsergb si le pasas un rgb incompleto (solved)
 seguir con comprobacion demapa.
-bordes, entidades...
+bordes, entidades... (check)
 
-Debo de mantener las lienas vacias dentro del mapa (culpa de gnl -> split) se salta las lineas vacias ""
+Debo de mantener las lienas vacias dentro del mapa (culpa de gnl -> split) se salta las lineas vacias "" (solved)
 
 En el chequeo guardar valores necesarios para facilitar la ejecucion
 si hay 0, comprueba las paredes alrededor.

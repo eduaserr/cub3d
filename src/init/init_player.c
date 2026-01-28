@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:44:17 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/11 17:44:44 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/28 20:36:40 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,18 @@ static void set_plane(t_player *p, char c)
 
 }
 
-static int is_player(t_game *game, int y, int x)
+int init_player(t_game *game)
 {
-    char    c;
-    c = game->map.map[y][x];
+	char	c;
+	int	y;
+	int	x;
+
+	y = (int)game->player.y;
+	x = (int)game->player.x;
+
     // Guardamos posición jugador y modificamos su casilla
-    if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
+    c = game->map.map[y][x];
+    if (is_player(c))
     {
 		// Sumamos 0.5 para estar en el centro entre x y x+1, no rompemos raycasting
         game->player.x = x + 0.5;
@@ -78,27 +84,4 @@ static int is_player(t_game *game, int y, int x)
 		return (1);
 	}
 	return (0);
-}
-
-void	init_player(t_game *game)
-{
-	int     y;
-    int     x;
-
-    y = 0;
-	while (game->map.map[y][0] != '1')
-		y++;
-    // Recorremos todo el mapa
-    while (game->map.map[y])
-    {
-		x = 0;
-		while (game->map.map[y][x])
-		{
-			if (is_player(game, y, x))
-                return ;
-            x++;
-        }
-        y++;
-    }
-    ft_error("Player not found in map");
 }

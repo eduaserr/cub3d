@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/27 17:36:42 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/28 20:21:50 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static char	*extract_line(char const *s, int *start, char c)
 	return (substr);
 }
 
+//este split no se salta las lineas vacias (las guarda)
 static char	**ft_split_lines(char const *s, char c)
 {
 	char	**str;

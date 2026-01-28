@@ -6,18 +6,17 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 20:43:55 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/27 17:37:35 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/28 20:14:18 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-void	check_map(t_game *game, char **map)
+static void	check_map(t_game *game, char **map)
 {
 	// por cada caracter 0, ver sus 4 lados y si hay un espacio en uno de ellos, error de mapa abierto.
 	if (check_borders(map, game->map.length))
 		return (ft_freematrix(&game->map.map)); // libero mapa para comprobar si fallo
-	//valid_path();
 }
 
 void	parse_file(t_game *game, char **file)
