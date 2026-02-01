@@ -31,9 +31,7 @@ void	render(void *param)
 	t_game	*game;
 
 	game = (t_game *)param;
+	player_input(game);
 	draw_background(game);
-//	mlx_delete_image(game->mlx, game->img);
-//	game->img = mlx_new_image(game->mlx, WIN_WIDTH, WIN_HEIGHT);
 	raycasting(game);
-//	mlx_image_to_window(game->mlx, game->img, 0, 0);
 }

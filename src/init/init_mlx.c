@@ -6,11 +6,21 @@
 /*   By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:43:41 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/27 18:17:08 by paularuizal      ###   ########.fr       */
+/*   Updated: 2026/02/01 01:00:11 by paularuizal      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
+
+void	init_textures(t_game *game)
+{
+	game->tex[NORTH] = mlx_load_png(game->parser.imgsidewall[NORTH]);
+	game->tex[SOUTH] = mlx_load_png(game->parser.imgsidewall[SOUTH]);
+	game->tex[EAST] = mlx_load_png(game->parser.imgsidewall[EAST]);
+	game->tex[WEST] = mlx_load_png(game->parser.imgsidewall[WEST]);
+	if (!game->tex[NORTH] || !game->tex[SOUTH] || !game->tex[EAST] || !game->tex[WEST])
+		ft_error("Texture load failed");
+}
 
 void	init_mlx(t_game *game)
 {

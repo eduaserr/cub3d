@@ -75,6 +75,10 @@ typedef struct s_ray
 	double	wall_dist;
 	double	wall_x;
 	int		tex_x;
+	int		tex_y;
+	double	step;
+	double	tex_pos;
+	int		tex_id;
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
@@ -101,12 +105,13 @@ typedef struct s_map
 
 typedef struct s_game
 {
-	mlx_t		*mlx;
-	mlx_image_t	*img;
-	void		*window;
-	t_parser	parser;
-	t_map		map;
-	t_player	player;
+	mlx_t			*mlx;
+	mlx_image_t		*img;
+	mlx_texture_t	*tex[4];
+	void			*window;
+	t_parser		parser;
+	t_map			map;
+	t_player		player;
 }		t_game;
 
 
@@ -301,9 +306,21 @@ void	raycasting(t_game *game);
 void	exec_dda(t_game *game, t_ray *ray);
 void	calc_wall_dist(t_game *game, t_ray *ray);
 void	calc_line_height(t_ray *ray);
+void	init_texture_vars(t_game *game, t_ray * ray);
 void	draw_vertical_line(t_game *game, t_ray *ray, int x);
 
 void	calc_wall_x(t_game *game, t_ray *ray);
+int		get_texture_index(t_ray *ray);
+void	calc_tex_x(t_game *game, t_ray *ray, int tex_id);
+
+void	move_forward(t_game *game);
+void	move_backward(t_game *game);
+void	move_left(t_game *game);
+void	move_right(t_game *game);
+void	player_input(void *param);
+
+void	rotate_left(t_game *game);
+void	rotate_right(t_game *game);
 
 
 /* ************************************************************************** */

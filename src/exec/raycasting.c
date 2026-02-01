@@ -55,6 +55,7 @@ void	raycasting(t_game *game)
 		calc_wall_dist(game, &ray);
 		calc_wall_x(game, &ray);
 		calc_line_height(&ray);
+		init_texture_vars(game, &ray);
 		draw_vertical_line(game, &ray, x);
 		x++;
 	}

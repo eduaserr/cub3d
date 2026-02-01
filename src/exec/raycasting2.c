@@ -2,28 +2,31 @@
 
 void	exec_dda(t_game *game, t_ray *ray)
 {
-	if (ray->side_dist_x < ray->side_dist_y)
+	while (ray->hit == 0)
 	{
-		ray->side_dist_x += ray->delta_dist_x;
-		ray->map_x += ray->step_x;
-		ray->side = 0;
+		if (ray->side_dist_x < ray->side_dist_y)
+		{
+			ray->side_dist_x += ray->delta_dist_x;
+			ray->map_x += ray->step_x;
+			ray->side = 0;
+		}
+		else
+		{
+			ray->side_dist_y += ray->delta_dist_y;
+			ray->map_y += ray->step_y;
+			ray->side = 1;
+		}
+		if (game->map.map[ray->map_y][ray->map_x] == '1')
+			ray->hit = 1;
 	}
-	else
-	{
-		ray->side_dist_y += ray->delta_dist_y;
-		ray->map_y += ray->step_y;
-		ray->side = 1;
-	}
-	if (game->map.map[ray->map_y][ray->map_x] == '1')
-		ray->hit = 1;
 }
 
 void	calc_wall_dist(t_game *game, t_ray *ray)
 {
 	if (ray->side == 0)
-		ray->wall_dist = (ray->map_x - game->player.x + (1 - ray->step_x / 2) / ray->ray_dir_x);
+		ray->wall_dist = (ray->map_x - game->player.x + (1 - ray->step_x) / 2) / ray->ray_dir_x;
 	else
-		ray->wall_dist = (ray->map_y - game->player.y + (1 - ray->step_y / 2) / ray->ray_dir_y);
+		ray->wall_dist = (ray->map_y - game->player.y + (1 - ray->step_y) / 2) / ray->ray_dir_y;
 }
 
 void	calc_line_height(t_ray *ray)
@@ -33,22 +36,35 @@ void	calc_line_height(t_ray *ray)
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;
 	ray->draw_end = ray->line_height / 2 + WIN_HEIGHT / 2;
-	if (ray->draw_end < 0)
+	if (ray->draw_end >= WIN_HEIGHT)
 		ray->draw_end = WIN_HEIGHT - 1;
+}
+
+void	init_texture_vars(t_game *game, t_ray * ray)
+{
+	ray->tex_id = get_texture_index(ray);
+	ray->step = (double)game->tex[ray->tex_id]->height / ray->line_height;
+	ray->tex_pos = (ray->draw_start - WIN_HEIGHT / 2 + ray->line_height / 2) * ray->step;
+	calc_tex_x(game, ray, ray->tex_id);
 }
 
 void	draw_vertical_line(t_game *game, t_ray *ray, int x)
 {
-	int			y;
-	uint32_t	color;
+	int				y;
+	uint32_t		color;
+	mlx_texture_t	*tex;
 
-	if (ray->side == 0)
-		color = 0xFF0000FF;
-	else
-		color = 0xAA0000FF;
+	tex = game->tex[ray->tex_id];
 	y = ray->draw_start;
 	while (y <= ray->draw_end)
 	{
+		ray->tex_y = (int)ray->tex_pos;
+		ray->tex_pos += ray->step;
+		if (ray->tex_y < 0)
+			ray->tex_y = 0;
+		if (ray->tex_y >= (int)tex->height)
+			ray->tex_y = tex->height - 1;
+		color = ((uint32_t *)tex->pixels)[ray->tex_y * tex->width + ray->tex_x];
 		mlx_put_pixel(game->img, x, y, color);
 		y++;
 	}
