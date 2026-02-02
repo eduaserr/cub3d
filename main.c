@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/01 01:01:35 by paularuizal      ###   ########.fr       */
+/*   Updated: 2026/02/02 18:52:39 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ int	main(int ac, char **av)
 		ft_error("invalid arguments, map name/extension");
 	get_file(&game, av[1]);
 	init_player(&game);
-	printf("Posición jugador: x=%f, y=%f\n", game.player.x, game.player.y);
-	printf("Dirección jugador: dir_x=%f, dir_y=%f\n", game.player.dir_x, game.player.dir_y);
 	//print_all(&game);
 	init_mlx(&game);
 	init_textures(&game);
@@ -62,6 +60,13 @@ int	main(int ac, char **av)
 
 /*
 TODO
+# 1. Mapa sin jugador
+# 2. Múltiples jugadores
+# 3. Texturas faltantes
+# 4. Colores inválidos
+# 5. Mapa no cerrado
+# 6. Caracteres inválidos
+# 7. Líneas vacías dentro del mapa
 
 PARSER
 comprobar que el path de la textura está completo. (solved, creo. need probar mas casos)

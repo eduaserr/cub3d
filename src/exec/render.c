@@ -34,4 +34,9 @@ void	render(void *param)
 	player_input(game);
 	draw_background(game);
 	raycasting(game);
+
+	//debug por consola
+	printf("Posición jugador: x=%f, y=%f\n", game->player.x, game->player.y);
+	printf("Dirección jugador: dir_x=%f, dir_y=%f\n", game->player.dir_x, game->player.dir_y);
+	usleep(500);
 }

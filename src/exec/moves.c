@@ -22,7 +22,6 @@ void	move_backward(t_game *game)
 		game->player.y -= game->player.dir_y * speed;
 }
 
-
 void	move_left(t_game *game)
 {
 	double	speed;

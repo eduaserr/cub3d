@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/28 20:21:50 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/01/29 18:16:12 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static char	**ft_split_lines(char const *s, char c)
 	return (str);
 }
 
-static char	*get_line(int fd, int *len)
+static char	*get_line(int fd)
 {
 	char	*superline;
 	char	*line;
@@ -78,7 +78,6 @@ static char	*get_line(int fd, int *len)
 	line = get_next_line(fd);
 	while (line)
 	{
-		*len += 1;
 		superline = ft_strjoin_gnl(superline, line);
 		line = ft_free_str(&line);
 		line = get_next_line(fd);
@@ -93,15 +92,13 @@ char	**read_map(char *filemap)
 	char	**map;
 	char	*superline;
 	int		fd;
-	int		len;
 	int		i;
 
 	superline = NULL;
-	len = 0;
 	fd = open(filemap, O_RDONLY);
 	if (fd < 0)
 		ft_error("Open fd error");
-	superline = get_line(fd, &len);
+	superline = get_line(fd);
 	close(fd);
 	i = 0;
 	while (ft_isspace(superline[i]))

@@ -46,6 +46,7 @@ void	raycasting(t_game *game)
 	t_ray	ray;
 
 	x = 0;
+	//ft_bzero(&ray, sizeof(t_ray));
 	while (x < WIN_WIDTH)
 	{
 		init_ray(game, &ray, x);

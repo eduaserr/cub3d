@@ -133,6 +133,7 @@ int	check_extension(char *av, char *str);
 /*                                  FREE                                      */
 /* ************************************************************************** */
 
+void	free_tex(t_game *game);
 /**
  * @brief Frees all parser-related memory.
  * Releases memory allocated for texture paths in the parser structure.
@@ -294,6 +295,8 @@ char	*get_path(char *line);
  * @param game Pointer to game structure
  */
 void	draw_map(t_game *game);
+
+void	init_textures(t_game *game);
 
 void	draw_background(t_game *game);
 void	render(void *param);
