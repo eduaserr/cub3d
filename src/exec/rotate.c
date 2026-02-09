@@ -1,6 +1,6 @@
 #include "../../inc/cub3d.h"
 
-void	rotate_left(t_game *game)
+void	rotate_right(t_game *game)
 {
 	double	old_dir_x;
 	double	old_plane_x;
@@ -16,7 +16,7 @@ void	rotate_left(t_game *game)
 	game->player.plane_y = old_plane_x * sin(speed) + game->player.plane_y * cos(speed);
 }
 
-void	rotate_right(t_game *game)
+void	rotate_left(t_game *game)
 {
 	double	old_dir_x;
 	double	old_plane_x;
