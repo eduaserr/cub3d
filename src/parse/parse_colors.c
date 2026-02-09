@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 18:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/06 16:11:56 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/09 05:27:02 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,14 @@ static t_color	parse_rgb(char *line)
 
 	i = 0;
 	rgb.r = parse_value(line, &i);
+	if (rgb.r == -1)
+		return (line = ft_free_str(&line), rgb);
 	rgb.g = parse_value(line, &i);
+	if (rgb.g == -1)
+		return (line = ft_free_str(&line), rgb);
 	rgb.b = parse_value(line, &i);
+	if (rgb.b == -1)
+		return (line = ft_free_str(&line), rgb);
 	line = ft_free_str(&line);
 	return (rgb);
 }
@@ -55,17 +61,23 @@ void	get_colors(t_game *game, char **file)
 	while (file[++i] && count < 2)
 	{
 		type = get_type(file[i], colors, 2);
-		if (type == F && game->parser.rgb[F].b == -1)
+		if (type == F)
 		{
+			if (game->parser.rgb[F].b != -1)
+				return (ft_error2("Duplicate colour definition"));
 			game->parser.rgb[F] = parse_rgb(get_path(file[i]));
+			if (!valid_color(game->parser.rgb[F]))
+				return ;
 			count++;
 		}
-		else if (type == C && game->parser.rgb[C].b == -1)
+		else if (type == C)
 		{
+			if (game->parser.rgb[C].b != -1)
+				return (ft_error2("Duplicate colour definition"));
 			game->parser.rgb[C] = parse_rgb(get_path(file[i]));
+			if (!valid_color(game->parser.rgb[C]))
+				return ;
 			count++;
 		}
-		else if (type != -1)
-			return (ft_error2("Duplicate colour definition"));
 	}
 }

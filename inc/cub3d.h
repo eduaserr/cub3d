@@ -91,16 +91,8 @@ typedef struct s_ray
 typedef struct s_map
 {
 	char		**file;
-	char		**cpyfile;
 	char		**map;
-	int			width;
 	int			length;
-	int			player;
-	int			floor;
-	int			wall;
-
-	//t_player	player_pos;
-	//t_exit		exit_pos;
 }		t_map;
 
 typedef struct s_game
@@ -192,6 +184,7 @@ int	is_player(char c);
  */
 char	**read_map(char *file_map);
 
+int		valid_color(t_color color);
 /**
  * @brief Main parsing function that validates and processes the map file.
  * Calls all parsing subfunctions to extract textures, colors, and map data.
@@ -316,10 +309,7 @@ void	calc_wall_x(t_game *game, t_ray *ray);
 int		get_texture_index(t_ray *ray);
 void	calc_tex_x(t_game *game, t_ray *ray, int tex_id);
 
-void	move_forward(t_game *game);
-void	move_backward(t_game *game);
-void	move_left(t_game *game);
-void	move_right(t_game *game);
+void	move(t_game *game, double dir_x, double dir_y);
 void	player_input(void *param);
 
 void	rotate_left(t_game *game);

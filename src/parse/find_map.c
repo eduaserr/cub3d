@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/27 17:23:49 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/08 17:25:56 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ int	find_map(char **file, int *i, int *j)
 	*i = find_end(file);
 	*j = find_start(file, *i, &found_map);
 	if (*j == -1)
-		return (-1);
+		return (1);
 	*j = skip_emptylines(file, *i, *j);
 	if (!found_map || *j > *i)
-		return (-1);
+		return (1);
 	return (0);
 }

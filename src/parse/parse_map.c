@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/28 20:24:12 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/08 17:25:49 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	get_map(t_game *game, char **file)
 	int	start;
 
 	i = 0;
-	if (find_map(file, &i, &j) == -1)
+	if (find_map(file, &i, &j))
 		return ;
 	start = j;
 	game->map.length = i - start + 1;
