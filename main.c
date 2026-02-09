@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/02 18:52:39 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/08 17:38:56 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@ void	get_file(t_game *game, char *file_map)
 	init_values(game);
 	game->map.file = read_map(file_map);
 	parse_file(game, game->map.file);
-	game->map.cpyfile = ft_arrdup(game->map.file);
-	if (!game->map.cpyfile)
-	{
-		free_all(game);
-		ft_error("Unexpected arrdup error");
-	}
 }
 
 int	main(int ac, char **av)

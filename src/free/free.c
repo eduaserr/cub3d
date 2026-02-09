@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:43:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/02 18:40:15 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/08 18:03:12 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ static void	free_map(t_game *game)
 {
 	if (game->map.file)
 		ft_freematrix(&game->map.file);
-	if (game->map.cpyfile)
-		ft_freematrix(&game->map.cpyfile);
 	if (game->map.map)
 		ft_freematrix(&game->map.map);
 }
@@ -70,6 +68,5 @@ void	free_all(t_game *game)
 		game->mlx = NULL;
 	}
 	game->map.file = NULL;
-	game->map.cpyfile = NULL;
 	game->map.map = NULL;
 }
