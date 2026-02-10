@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/08 17:38:56 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/10 18:19:18 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,17 @@ void	get_file(t_game *game, char *file_map)
 
 int	main(int ac, char **av)
 {
-	//t_game	game = {0};
 	t_game	game;
 
 	if (ac != 2 || check_extension(av[1], ".cub"))
 		ft_error("invalid arguments, map name/extension");
 	get_file(&game, av[1]);
 	init_player(&game);
-	//print_all(&game);
 	init_mlx(&game);
 	init_textures(&game);
 	mlx_loop(game.mlx);
 	free_all(&game);
-	return 0;
+	return (0);
 }
 
 

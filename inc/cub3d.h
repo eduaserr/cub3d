@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/28 03:29:47 by paularuizal         ###   ########.fr       */
+/*   Updated: 2026/02/10 19:15:34 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define CELL_SIZE 20
 # define PLAYER_SIZE 10
 
-enum dir
+enum e_dir
 {
 	NORTH = 0,
 	SOUTH,
@@ -32,7 +32,7 @@ enum dir
 	WEST
 };
 
-enum rgb
+enum e_rgb
 {
 	F = 0,
 	C = 1,
@@ -106,7 +106,6 @@ typedef struct s_game
 	t_player		player;
 }		t_game;
 
-
 /* ************************************************************************** */
 /*                                  MAIN                                      */
 /* ************************************************************************** */
@@ -119,7 +118,7 @@ typedef struct s_game
  * @param str Expected extension (e.g., ".cub", ".png")
  * @return 0 if extension is valid, 1 if invalid or filename too short
  */
-int	check_extension(char *av, char *str);
+int		check_extension(char *av, char *str);
 
 /* ************************************************************************** */
 /*                                  FREE                                      */
@@ -160,7 +159,7 @@ void	init_values(t_game *game);
  * 
  * @param game Pointer to game structure
  */
-int	init_player(t_game *game);
+int		init_player(t_game *game);
 
 /**
  * @brief Initializes MLX library and creates window.
@@ -174,7 +173,7 @@ void	init_mlx(t_game *game);
 /*                                  PARSE                                     */
 /* ************************************************************************** */
 
-int	is_player(char c);
+int		is_player(char c);
 /**
  * @brief Reads the map file and returns it as a string array.
  * Opens the file, reads all lines, and stores them in a NULL-terminated array.
@@ -295,14 +294,14 @@ void	draw_background(t_game *game);
 void	render(void *param);
 
 void	init_ray(t_game *game, t_ray *ray, int x);
-void	calc_delta_dist(t_ray * ray);
+void	calc_delta_dist(t_ray *ray);
 void	calc_step_side(t_game *game, t_ray *ray);
 void	raycasting(t_game *game);
 
 void	exec_dda(t_game *game, t_ray *ray);
 void	calc_wall_dist(t_game *game, t_ray *ray);
 void	calc_line_height(t_ray *ray);
-void	init_texture_vars(t_game *game, t_ray * ray);
+void	init_texture_vars(t_game *game, t_ray *ray);
 void	draw_vertical_line(t_game *game, t_ray *ray, int x);
 
 void	calc_wall_x(t_game *game, t_ray *ray);
@@ -314,7 +313,6 @@ void	player_input(void *param);
 
 void	rotate_left(t_game *game);
 void	rotate_right(t_game *game);
-
 
 /* ************************************************************************** */
 /*                                  PRINT                                     */

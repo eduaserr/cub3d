@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:51:32 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/24 23:06:55 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/10 19:41:16 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	ft_printrgb(t_game *game)
 	int	i;
 
 	i = 0;
-	while (i < 2){
+	while (i < 2)
+	{
 		ft_printf("r %d\n", game->parser.rgb[i].r);
 		ft_printf("g %d\n", game->parser.rgb[i].g);
 		ft_printf("b %d\n", game->parser.rgb[i].b);
@@ -43,7 +44,6 @@ void	print_all(t_game *game)
 	int	i;
 
 	//ft_printmatrix(game->map.file);
-	//ft_printmatrix(game->map.cpyfile);
 	ft_printf("\nPRINT MAP MATRIX\n");
 	ft_printmatrix(game->map.map);
 	ft_printf("\nPRINT PARSER STRUCT\n");

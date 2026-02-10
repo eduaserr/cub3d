@@ -40,7 +40,7 @@ void	calc_line_height(t_ray *ray)
 		ray->draw_end = WIN_HEIGHT - 1;
 }
 
-void	init_texture_vars(t_game *game, t_ray * ray)
+void	init_texture_vars(t_game *game, t_ray* ray)
 {
 	ray->tex_id = get_texture_index(ray);
 	ray->step = (double)game->tex[ray->tex_id]->height / ray->line_height;

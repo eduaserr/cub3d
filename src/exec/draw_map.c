@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruiz-al <pruiz-al@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:43:20 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/10 20:36:41 by pruiz-al         ###   ########.fr       */
+/*   Updated: 2026/02/10 21:16:10 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	draw_player(t_game *game)
 		j = 0;
 		while (j < PLAYER_SIZE)
 		{
-			mlx_put_pixel(game->img, start_x+ i, start_y + j, 0x0000FFFF);
+			mlx_put_pixel(game->img, start_x + i, start_y + j, 0x0000FFFF);
 			j++;
 		}
 		i++;
