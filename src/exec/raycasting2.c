@@ -51,6 +51,7 @@ void	init_texture_vars(t_game *game, t_ray * ray)
 void	draw_vertical_line(t_game *game, t_ray *ray, int x)
 {
 	int				y;
+	uint8_t			*pix;
 	uint32_t		color;
 	mlx_texture_t	*tex;
 
@@ -64,7 +65,8 @@ void	draw_vertical_line(t_game *game, t_ray *ray, int x)
 			ray->tex_y = 0;
 		if (ray->tex_y >= (int)tex->height)
 			ray->tex_y = tex->height - 1;
-		color = ((uint32_t *)tex->pixels)[ray->tex_y * tex->width + ray->tex_x];
+		pix = &tex->pixels[4 * (ray->tex_y * tex->width + ray->tex_x)];
+		color = (pix[0] << 24 | (pix[1] << 16) | pix[2] << 8 | pix[3]);
 		mlx_put_pixel(game->img, x, y, color);
 		y++;
 	}
