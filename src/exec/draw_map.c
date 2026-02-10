@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: pruiz-al <pruiz-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:43:20 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/11 17:43:25 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/10 20:36:41 by pruiz-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	draw_cell(t_game *game, int x, int y, uint32_t color)
 		j = 0;
 		while (j < CELL_SIZE)
 		{
-			mlx_put_pixel(game->img, x * CELL_SIZE + i, y * CELL_SIZE + j, color);
+			mlx_put_pixel(game->img, 20 + x * CELL_SIZE + i, 20 + y * CELL_SIZE + j, color);
 			j++;
 		}
 		i++;
@@ -37,8 +37,8 @@ static void	draw_player(t_game *game)
 	int	start_x;
 	int	start_y;
 
-	start_x = (int)(game->player.x * 20) - PLAYER_SIZE / 2; // Para estar centrado entre las dos paredes
-	start_y = (int)(game->player.y * 20) - PLAYER_SIZE / 2;
+	start_x = 20 + (int)(game->player.x * CELL_SIZE) - PLAYER_SIZE / 2; // Para estar centrado entre las dos paredes
+	start_y = 20 + (int)(game->player.y * CELL_SIZE) - PLAYER_SIZE / 2;
 	i = 0;
 	while (i < PLAYER_SIZE)
 	{
@@ -68,8 +68,6 @@ void	draw_map(t_game *game)
 				draw_cell(game, i, j, 0xFF0000FF);
 			else if (game->map.map[j][i] == '0')
 				draw_cell(game, i, j, 0x00FF00FF);
-			else
-				draw_cell(game, i, j, 0);
 			i++;
 		}
 		j++;
