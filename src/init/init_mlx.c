@@ -19,7 +19,8 @@ void	init_textures(t_game *game)
 	i = -1;
 	while (++i < 4)
 		game->tex[i] = mlx_load_png(game->parser.imgsidewall[i]);
-	if (!game->tex[NORTH] || !game->tex[SOUTH] || !game->tex[EAST] || !game->tex[WEST])
+	if (!game->tex[NORTH] || !game->tex[SOUTH]
+		|| !game->tex[EAST] || !game->tex[WEST])
 		return (free_all(game), ft_error("Texture load failed"));
 }
 

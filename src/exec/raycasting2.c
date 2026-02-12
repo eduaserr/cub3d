@@ -24,9 +24,11 @@ void	exec_dda(t_game *game, t_ray *ray)
 void	calc_wall_dist(t_game *game, t_ray *ray)
 {
 	if (ray->side == 0)
-		ray->wall_dist = (ray->map_x - game->player.x + (1 - ray->step_x) / 2) / ray->ray_dir_x;
+		ray->wall_dist = (ray->map_x - game->player.x
+				+ (1 - ray->step_x) / 2) / ray->ray_dir_x;
 	else
-		ray->wall_dist = (ray->map_y - game->player.y + (1 - ray->step_y) / 2) / ray->ray_dir_y;
+		ray->wall_dist = (ray->map_y - game->player.y
+				+ (1 - ray->step_y) / 2) / ray->ray_dir_y;
 }
 
 void	calc_line_height(t_ray *ray)
@@ -40,11 +42,12 @@ void	calc_line_height(t_ray *ray)
 		ray->draw_end = WIN_HEIGHT - 1;
 }
 
-void	init_texture_vars(t_game *game, t_ray* ray)
+void	init_texture_vars(t_game *game, t_ray *ray)
 {
 	ray->tex_id = get_texture_index(ray);
 	ray->step = (double)game->tex[ray->tex_id]->height / ray->line_height;
-	ray->tex_pos = (ray->draw_start - WIN_HEIGHT / 2 + ray->line_height / 2) * ray->step;
+	ray->tex_pos = (ray->draw_start - WIN_HEIGHT / 2 + ray->line_height / 2)
+		* ray->step;
 	calc_tex_x(game, ray, ray->tex_id);
 }
 

@@ -10,7 +10,7 @@ void	init_ray(t_game *game, t_ray *ray, int x)
 	ray->hit = 0;
 }
 
-void	calc_delta_dist(t_ray * ray)
+void	calc_delta_dist(t_ray *ray)
 {
 	ray->delta_dist_x = fabs(1 / ray->ray_dir_x);
 	ray->delta_dist_y = fabs(1 / ray->ray_dir_y);
@@ -26,7 +26,8 @@ void	calc_step_side(t_game *game, t_ray *ray)
 	else
 	{
 		ray->step_x = 1;
-		ray->side_dist_x = (ray->map_x + 1.0 - game->player.x) * ray->delta_dist_x;
+		ray->side_dist_x = (ray->map_x + 1.0 - game->player.x)
+			* ray->delta_dist_x;
 	}
 	if (ray->ray_dir_y < 0)
 	{
@@ -36,7 +37,8 @@ void	calc_step_side(t_game *game, t_ray *ray)
 	else
 	{
 		ray->step_y = 1;
-		ray->side_dist_y = (ray->map_y + 1.0 - game->player.y) * ray->delta_dist_y;
+		ray->side_dist_y = (ray->map_y + 1.0 - game->player.y)
+			* ray->delta_dist_y;
 	}
 }
 

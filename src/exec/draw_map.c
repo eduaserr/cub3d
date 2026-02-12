@@ -23,7 +23,8 @@ static void	draw_cell(t_game *game, int x, int y, uint32_t color)
 		j = 0;
 		while (j < CELL_SIZE)
 		{
-			mlx_put_pixel(game->img, 20 + x * CELL_SIZE + i, 20 + y * CELL_SIZE + j, color);
+			mlx_put_pixel(game->img, 20 + x * CELL_SIZE + i,
+				20 + y * CELL_SIZE + j, color);
 			j++;
 		}
 		i++;

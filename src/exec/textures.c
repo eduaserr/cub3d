@@ -33,6 +33,7 @@ void	calc_tex_x(t_game *game, t_ray *ray, int tex_id)
 
 	tex_width = game->tex[tex_id]->width;
 	ray->tex_x = (int)(ray->wall_x * tex_width);
-	if ((ray->side == 0 && ray->ray_dir_x > 0) || (ray->side == 1 && ray->ray_dir_y < 0))
+	if ((ray->side == 0 && ray->ray_dir_x > 0)
+		|| (ray->side == 1 && ray->ray_dir_y < 0))
 		ray->tex_x = tex_width - ray->tex_x - 1;
 }

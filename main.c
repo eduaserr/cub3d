@@ -48,8 +48,6 @@ int	main(int ac, char **av)
 	return (0);
 }
 
-
-
 /*
 TODO
 # 1. Mapa sin jugador
