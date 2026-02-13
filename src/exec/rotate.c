@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/13 23:55:26 by eduaserr          #+#    #+#             */
+/*   Updated: 2026/02/13 23:55:27 by eduaserr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/cub3d.h"
 
 void	rotate_right(t_game *game)
@@ -6,7 +18,7 @@ void	rotate_right(t_game *game)
 	double	old_plane_x;
 	double	speed;
 
-	speed = 0.075;
+	speed = game->player.speed;
 	old_dir_x = game->player.dir_x;
 	game->player.dir_x = game->player.dir_x * cos(speed)
 		- game->player.dir_y * sin(speed);
@@ -25,7 +37,7 @@ void	rotate_left(t_game *game)
 	double	old_plane_x;
 	double	speed;
 
-	speed = 0.075;
+	speed = game->player.speed;
 	old_dir_x = game->player.dir_x;
 	game->player.dir_x = game->player.dir_x * cos(-speed)
 		- game->player.dir_y * sin(-speed);

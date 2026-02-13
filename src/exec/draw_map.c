@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:43:20 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/10 21:16:10 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/13 23:54:00 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ void	draw_map(t_game *game)
 		{
 			// Es una pared
 			if (game->map.map[j][i] == '1')
-				draw_cell(game, i, j, 0xFF0000FF);
+				draw_cell(game, i, j, 0xFFFFFFCC);
 			else if (game->map.map[j][i] == '0')
-				draw_cell(game, i, j, 0x00FF00FF);
+				draw_cell(game, i, j, 0x444444AA);
 			i++;
 		}
 		j++;

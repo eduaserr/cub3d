@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/13 23:55:03 by eduaserr          #+#    #+#             */
+/*   Updated: 2026/02/13 23:55:04 by eduaserr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/cub3d.h"
 
 static void	check_and_move(t_game *game, double dx, double dy)
@@ -17,7 +29,7 @@ void	move(t_game *game, double dir_x, double dir_y)
 {
 	double	speed;
 
-	speed = 0.075;
+	speed = game->player.speed;
 	check_and_move(game, dir_x * speed, dir_y * speed);
 }
 

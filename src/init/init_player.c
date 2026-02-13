@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:44:17 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/01/28 20:36:40 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/13 23:14:43 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	init_player(t_game *game)
 		game->player.y = y + 0.5;
 		set_player_dir(&game->player, c);
 		set_plane(&game->player, c);
+		game->player.speed = 0.06;
 		game->map.map[y][x] = '0'; // No hay pared para raycasting
 		return (1);
 	}
