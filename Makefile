@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+         #
+#    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/13 03:22:17 by eduaserr          #+#    #+#              #
-#    Updated: 2026/02/01 01:03:23 by paularuizal      ###   ########.fr        #
+#    Updated: 2026/02/14 12:59:40 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ PRINT	= src/print/
 ### SRCS ###
 SRC		= main.c
 SRCS	= $(INIT)init.c $(INIT)init_mlx.c $(INIT)init_player.c \
-		$(EXEC)draw_map.c $(EXEC)moves.c $(EXEC)raycasting.c $(EXEC)raycasting2.c $(EXEC)render.c $(EXEC)rotate.c $(EXEC)textures.c\
+		$(EXEC)draw_map.c $(EXEC)draw_utils.c $(EXEC)moves.c $(EXEC)raycasting.c $(EXEC)raycasting2.c $(EXEC)render.c $(EXEC)rotate.c $(EXEC)textures.c\
 		$(FREE)free.c \
 		$(PARSE)read_map.c $(PARSE)parse_file.c $(PARSE)parse_map.c $(PARSE)find_map.c $(PARSE)map_validation.c $(PARSE)map_check.c $(PARSE)parse_textures.c $(PARSE)parse_colors.c $(PARSE)parse_utils.c \
 		$(PRINT)print.c

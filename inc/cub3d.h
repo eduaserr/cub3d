@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/13 23:07:00 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/14 13:40:02 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 # define WIN_WIDTH 1024
 # define WIN_HEIGHT 768
-# define CELL_SIZE 20
-# define PLAYER_SIZE 10
+# define CELL_SIZE 10
+# define PLAYER_SIZE (CELL_SIZE / 2)
 
 enum e_dir
 {
@@ -289,7 +289,8 @@ char	*get_path(char *line);
  */
 void	draw_map(t_game *game);
 
-void	init_textures(t_game *game);
+uint32_t	blend_pixel(mlx_image_t *img, int x, int y, uint32_t color);
+void		init_textures(t_game *game);
 
 void	draw_background(t_game *game);
 void	render(void *param);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/10 18:19:18 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/14 13:33:06 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	check_extension(char *av, char *str)
 	return (1);
 }
 
-void	get_file(t_game *game, char *file_map)
+static void	get_file(t_game *game, char *file_map)
 {
 	init_values(game);
 	game->map.file = read_map(file_map);
@@ -70,10 +70,10 @@ En el chequeo guardar valores necesarios para facilitar la ejecucion
 si hay 0, comprueba las paredes alrededor.
 
 
-   1     1111111111111111111111111		(mapa valido)
+   1     111111111111111111111111		(mapa valido)
         1000000000110000000000001
         1111111111111111111111111
-  
+
 ¿Que sucede si hay una pared suelta fuera del mapa?
 valido
 
