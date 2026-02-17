@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 23:54:52 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/13 23:54:54 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/16 23:48:08 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	raycasting(t_game *game)
 	t_ray	ray;
 
 	x = 0;
-	//ft_bzero(&ray, sizeof(t_ray));
 	while (x < WIN_WIDTH)
 	{
 		init_ray(game, &ray, x);

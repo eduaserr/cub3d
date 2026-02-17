@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/14 13:33:06 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/16 23:41:56 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ static void	get_file(t_game *game, char *file_map)
 	parse_file(game, game->map.file);
 }
 
+static void exec(t_game *game)
+{
+	init_player(&game);
+	init_mlx(&game);
+	init_textures(&game);
+	mlx_loop(game->mlx);
+}
+
 int	main(int ac, char **av)
 {
 	t_game	game;
@@ -40,10 +48,7 @@ int	main(int ac, char **av)
 	if (ac != 2 || check_extension(av[1], ".cub"))
 		ft_error("invalid arguments, map name/extension");
 	get_file(&game, av[1]);
-	init_player(&game);
-	init_mlx(&game);
-	init_textures(&game);
-	mlx_loop(game.mlx);
+	exec(&game);
 	free_all(&game);
 	return (0);
 }
