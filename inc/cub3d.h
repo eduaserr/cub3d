@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/17 19:14:39 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/17 20:42:45 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 # define WIN_WIDTH 1024
 # define WIN_HEIGHT 768
-# define CELL_SIZE (WIN_HEIGHT / 54)
-# define PLAYER_SIZE (CELL_SIZE / 2)
+# define CELL_SIZE 14
+# define PLAYER_SIZE 7
 
 enum e_dir
 {
@@ -119,20 +119,20 @@ typedef struct s_game
  * @param str Expected extension (e.g., ".cub", ".png")
  * @return 0 if extension is valid, 1 if invalid or filename too short
  */
-int		check_extension(char *av, char *str);
+int			check_extension(char *av, char *str);
 
 /* ************************************************************************** */
 /*                                  FREE                                      */
 /* ************************************************************************** */
 
-void	free_tex(t_game *game);
+void		free_tex(t_game *game);
 /**
  * @brief Frees all parser-related memory.
  * Releases memory allocated for texture paths in the parser structure.
  * 
  * @param game Pointer to game structure
  */
-void	free_parser(t_game *game);
+void		free_parser(t_game *game);
 
 /**
  * @brief Frees all allocated memory in the game structure.
@@ -140,7 +140,7 @@ void	free_parser(t_game *game);
  * 
  * @param game Pointer to game structure
  */
-void	free_all(t_game *game);
+void		free_all(t_game *game);
 
 /* ************************************************************************** */
 /*                                  INIT                                      */
@@ -152,7 +152,7 @@ void	free_all(t_game *game);
  * 
  * @param game Pointer to game structure
  */
-void	init_values(t_game *game);
+void		init_values(t_game *game);
 
 /**
  * @brief Initializes player position and orientation.
@@ -160,7 +160,7 @@ void	init_values(t_game *game);
  * 
  * @param game Pointer to game structure
  */
-int		init_player(t_game *game);
+int			init_player(t_game *game);
 
 /**
  * @brief Initializes MLX library and creates window.
@@ -168,13 +168,13 @@ int		init_player(t_game *game);
  * 
  * @param game Pointer to game structure
  */
-void	init_mlx(t_game *game);
+void		init_mlx(t_game *game);
 
 /* ************************************************************************** */
 /*                                  PARSE                                     */
 /* ************************************************************************** */
 
-int		is_player(char c);
+int			is_player(char c);
 /**
  * @brief Reads the map file and returns it as a string array.
  * Opens the file, reads all lines, and stores them in a NULL-terminated array.
@@ -182,9 +182,9 @@ int		is_player(char c);
  * @param file_map Path to the .cub map file
  * @return Array of strings containing file content, NULL on error
  */
-char	**read_map(char *file_map);
+char		**read_map(char *file_map);
 
-int		valid_color(t_color color);
+int			valid_color(t_color color);
 /**
  * @brief Main parsing function that validates and processes the map file.
  * Calls all parsing subfunctions to extract textures, colors, and map data.
@@ -192,7 +192,7 @@ int		valid_color(t_color color);
  * @param game Pointer to game structure
  * @param map Array of strings containing the map file content
  */
-void	parse_file(t_game *game, char **map);
+void		parse_file(t_game *game, char **map);
 
 /**
  * @brief Parses and validates wall texture paths from the file.
@@ -201,7 +201,7 @@ void	parse_file(t_game *game, char **map);
  * @param game Pointer to game structure
  * @param map Array of strings containing the map file content
  */
-void	get_sidetxt(t_game *game, char **map);
+void		get_sidetxt(t_game *game, char **map);
 
 /**
  * @brief Parses and validates floor and ceiling RGB colors.
@@ -210,7 +210,7 @@ void	get_sidetxt(t_game *game, char **map);
  * @param game Pointer to game structure
  * @param map Array of strings containing the map file content
  */
-void	get_colors(t_game *game, char **map);
+void		get_colors(t_game *game, char **map);
 
 /**
  * @brief Extracts the map grid from the file.
@@ -219,7 +219,7 @@ void	get_colors(t_game *game, char **map);
  * @param game Pointer to game structure
  * @param file Array of strings containing the map file content
  */
-void	get_map(t_game *game, char **file);
+void		get_map(t_game *game, char **file);
 
 /**
  * @brief Finds the start and end indices of the map in the file.
@@ -230,7 +230,7 @@ void	get_map(t_game *game, char **file);
  * @param j Pointer to store start index
  * @return 0 on success, -1 on error
  */
-int		find_map(char **file, int *i, int *j);
+int			find_map(char **file, int *i, int *j);
 
 /**
  * @brief Checks if a line is empty or contains only spaces.
@@ -238,7 +238,7 @@ int		find_map(char **file, int *i, int *j);
  * @param line Line to check
  * @return 1 if empty, 0 otherwise
  */
-int		is_empty_line(char *line);
+int			is_empty_line(char *line);
 
 /**
  * @brief Determines if a line belongs to the map.
@@ -246,7 +246,7 @@ int		is_empty_line(char *line);
  * @param line Line to analyze
  * @return 1 if map line, 0 if not, -1 on error
  */
-int		is_map_line(char *line);
+int			is_map_line(char *line);
 
 /**
  * @brief Validates map borders are properly closed.
@@ -255,7 +255,7 @@ int		is_map_line(char *line);
  * @param len Map length
  * @return 0 if valid, 1 if error
  */
-int		check_borders(char **map, int len);
+int			check_borders(char **map, int len);
 
 /**
  * @brief Identifies the type of configuration line.
@@ -266,7 +266,7 @@ int		check_borders(char **map, int len);
  * @param len Number of valid identifiers
  * @return Index of matched type, or -1 if no match found
  */
-int		get_type(char *line, char **sides, int len);
+int			get_type(char *line, char **sides, int len);
 
 /**
  * @brief Extracts the file path from a configuration line.
@@ -275,7 +275,7 @@ int		get_type(char *line, char **sides, int len);
  * @param line Configuration line to parse
  * @return Allocated string containing the path, NULL on error
  */
-char	*get_path(char *line);
+char		*get_path(char *line);
 
 /* ************************************************************************** */
 /*                                   EXEC                                     */
@@ -287,34 +287,34 @@ char	*get_path(char *line);
  * 
  * @param game Pointer to game structure
  */
-void	draw_map(t_game *game);
+void		draw_map(t_game *game);
 
 uint32_t	blend_pixel(mlx_image_t *img, int x, int y, uint32_t color);
 void		init_textures(t_game *game);
 
-void	draw_background(t_game *game);
-void	render(void *param);
+void		draw_background(t_game *game);
+void		render(void *param);
 
-void	init_ray(t_game *game, t_ray *ray, int x);
-void	calc_delta_dist(t_ray *ray);
-void	calc_step_side(t_game *game, t_ray *ray);
-void	raycasting(t_game *game);
+void		init_ray(t_game *game, t_ray *ray, int x);
+void		calc_delta_dist(t_ray *ray);
+void		calc_step_side(t_game *game, t_ray *ray);
+void		raycasting(t_game *game);
 
-void	exec_dda(t_game *game, t_ray *ray);
-void	calc_wall_dist(t_game *game, t_ray *ray);
-void	calc_line_height(t_ray *ray);
-void	init_texture_vars(t_game *game, t_ray *ray);
-void	draw_vertical_line(t_game *game, t_ray *ray, int x);
+void		exec_dda(t_game *game, t_ray *ray);
+void		calc_wall_dist(t_game *game, t_ray *ray);
+void		calc_line_height(t_ray *ray);
+void		init_texture_vars(t_game *game, t_ray *ray);
+void		draw_vertical_line(t_game *game, t_ray *ray, int x);
 
-void	calc_wall_x(t_game *game, t_ray *ray);
-int		get_texture_index(t_ray *ray);
-void	calc_tex_x(t_game *game, t_ray *ray, int tex_id);
+void		calc_wall_x(t_game *game, t_ray *ray);
+int			get_texture_index(t_ray *ray);
+void		calc_tex_x(t_game *game, t_ray *ray, int tex_id);
 
-void	move(t_game *game, double dir_x, double dir_y);
-void	player_input(void *param);
+void		move(t_game *game, double dir_x, double dir_y);
+void		player_input(void *param);
 
-void	rotate_left(t_game *game);
-void	rotate_right(t_game *game);
+void		rotate_left(t_game *game);
+void		rotate_right(t_game *game);
 
 /* ************************************************************************** */
 /*                                  PRINT                                     */
@@ -327,7 +327,7 @@ void	rotate_right(t_game *game);
  * @param str Error message to display
  * @warning This function calls exit(EXIT_FAILURE). Free all resources before.
  */
-void	ft_error(char *str);
+void		ft_error(char *str);
 
 /**
  * @brief Displays an error message without terminating the program.
@@ -335,7 +335,7 @@ void	ft_error(char *str);
  * 
  * @param str Error message to display
  */
-void	ft_error2(char *str);
+void		ft_error2(char *str);
 
 /**
  * @brief Prints RGB color values for debugging.
@@ -343,7 +343,7 @@ void	ft_error2(char *str);
  * 
  * @param game Pointer to game structure
  */
-void	ft_printrgb(t_game *game);
+void		ft_printrgb(t_game *game);
 
 /**
  * @brief Prints all game data for debugging purposes.
@@ -351,6 +351,6 @@ void	ft_printrgb(t_game *game);
  * 
  * @param game Pointer to game structure
  */
-void	print_all(t_game *game);
+void		print_all(t_game *game);
 
 #endif

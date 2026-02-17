@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_colors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 18:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/09 05:27:02 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/17 20:43:07 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,19 @@ static t_color	parse_rgb(char *line)
 	return (rgb);
 }
 
+static int	process_color(t_game *game, char *line, int type)
+{
+	if (game->parser.rgb[type].b != -1)
+	{
+		ft_error2("Duplicate colour definition");
+		return (0);
+	}
+	game->parser.rgb[type] = parse_rgb(get_path(line));
+	if (!valid_color(game->parser.rgb[type]))
+		return (0);
+	return (1);
+}
+
 void	get_colors(t_game *game, char **file)
 {
 	int		i;
@@ -61,21 +74,9 @@ void	get_colors(t_game *game, char **file)
 	while (file[++i] && count < 2)
 	{
 		type = get_type(file[i], colors, 2);
-		if (type == F)
+		if (type == F || type == C)
 		{
-			if (game->parser.rgb[F].b != -1)
-				return (ft_error2("Duplicate colour definition"));
-			game->parser.rgb[F] = parse_rgb(get_path(file[i]));
-			if (!valid_color(game->parser.rgb[F]))
-				return ;
-			count++;
-		}
-		else if (type == C)
-		{
-			if (game->parser.rgb[C].b != -1)
-				return (ft_error2("Duplicate colour definition"));
-			game->parser.rgb[C] = parse_rgb(get_path(file[i]));
-			if (!valid_color(game->parser.rgb[C]))
+			if (!process_color(game, file[i], type))
 				return ;
 			count++;
 		}

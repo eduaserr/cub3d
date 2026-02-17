@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 12:49:28 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/14 13:13:02 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/17 19:46:18 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ static uint32_t	blend_alpha(uint32_t fg, uint32_t bg)
 
 	alpha = fg & 0xFF;
 	inv_alpha = 255 - alpha;
-	r = ((((fg >> 24) & 0xFF) * alpha) + (((bg >> 24) & 0xFF) * inv_alpha)) / 255;
-	g = ((((fg >> 16) & 0xFF) * alpha) + (((bg >> 16) & 0xFF) * inv_alpha)) / 255;
+	r = ((((fg >> 24) & 0xFF) * alpha)
+			+ (((bg >> 24) & 0xFF) * inv_alpha)) / 255;
+	g = ((((fg >> 16) & 0xFF) * alpha)
+			+ (((bg >> 16) & 0xFF) * inv_alpha)) / 255;
 	b = ((((fg >> 8) & 0xFF) * alpha) + (((bg >> 8) & 0xFF) * inv_alpha)) / 255;
 	return (r << 24 | g << 16 | b << 8 | 0xFF);
 }
