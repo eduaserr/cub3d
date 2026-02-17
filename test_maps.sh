@@ -34,14 +34,14 @@ fi
 echo -e "${GREEN}Compilación exitosa${NC}"
 echo ""
 
-# Función para probar un mapa de error
+# Función para probar un mapa de error CON VALGRIND
 test_failure_map() {
     local map=$1
     local description=$2
     TOTAL=$((TOTAL + 1))
     
-    # Ejecutar el programa y capturar el código de salida
-    if ./cub3d "$map" > /dev/null 2>&1; then
+    # Ejecutar con valgrind
+    if valgrind --leak-check=full ./cub3d "$map" > /dev/null 2>&1; then
         echo -e "${RED}[FAIL]${NC} $description"
         echo "       Esperaba error pero el programa ejecutó exitosamente"
         FAILED=$((FAILED + 1))
@@ -53,7 +53,7 @@ test_failure_map() {
     fi
 }
 
-# Función para probar un mapa de éxito
+# Función para probar un mapa de éxito SIN VALGRIND
 test_success_map() {
     local map=$1
     local description=$2
@@ -80,7 +80,7 @@ test_success_map() {
     fi
 }
 
-echo "======== PRUEBAS DE MAPAS DE ERROR ========"
+echo "======== PRUEBAS DE MAPAS DE ERROR (con Valgrind) ========"
 echo ""
 
 # Pruebas de texturas faltantes
@@ -120,7 +120,7 @@ test_failure_map "$FAILURE_MAPS/missing_png_extension.cub" "Textura sin extensi�
 test_failure_map "$FAILURE_MAPS/disconnected_zones.cub" "Zonas desconectadas en el mapa"
 
 echo ""
-echo "======== PRUEBAS DE MAPAS DE ÉXITO ========"
+echo "======== PRUEBAS DE MAPAS DE ÉXITO (sin Valgrind) ========"
 echo ""
 
 # Pruebas de mapas válidos

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:02 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/17 03:50:16 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/17 19:25:09 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	get_file(t_game *game, char *file_map)
 	parse_file(game, game->map.file);
 }
 
-static void exec(t_game *game)
+static void	exec(t_game *game)
 {
 	init_player(game);
 	init_mlx(game);

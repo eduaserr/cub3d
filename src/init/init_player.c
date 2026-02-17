@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:44:17 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/16 23:05:35 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/17 19:29:54 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	init_player(t_game *game)
 		game->player.y = y + 0.5;
 		set_player_dir(&game->player, c);
 		set_plane(&game->player, c);
-		game->player.speed = 0.05;
+		game->player.speed = 0.1;
 		game->map.map[y][x] = '0'; // No hay pared para raycasting
 		return (1);
 	}

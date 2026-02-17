@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:43:41 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/02 17:49:10 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/17 19:03:13 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	init_textures(t_game *game)
 
 void	init_mlx(t_game *game)
 {
-	game->mlx = mlx_init(WIN_WIDTH, WIN_HEIGHT, "Cub3D", false);
+	game->mlx = mlx_init(WIN_WIDTH, WIN_HEIGHT, "Cub3D", true);
 	if (!game->mlx)
 		return (free_all(game), ft_error("MLX init failed"));
 	game->img = mlx_new_image(game->mlx, WIN_WIDTH, WIN_HEIGHT);
