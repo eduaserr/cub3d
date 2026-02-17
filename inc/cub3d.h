@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/14 13:40:02 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/17 19:14:39 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # define WIN_WIDTH 1024
 # define WIN_HEIGHT 768
-# define CELL_SIZE 10
+# define CELL_SIZE (WIN_HEIGHT / 54)
 # define PLAYER_SIZE (CELL_SIZE / 2)
 
 enum e_dir
