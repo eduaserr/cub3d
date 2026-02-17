@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 23:55:21 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/13 23:55:22 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/17 04:10:35 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	render(void *param)
 	player_input(game);
 	draw_background(game);
 	raycasting(game);
-	draw_map(game);
+	if (mlx_is_key_down(game->mlx, MLX_KEY_TAB))
+		draw_map(game);
 	//debug por consola
 	printf("Posición jugador: x=%f, y=%f\n", game->player.x, game->player.y);
 	printf("Dirección jugador: dir_x=%f, dir_y=%f\n", game->player.dir_x, game->player.dir_y);
