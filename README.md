@@ -1,6 +1,5 @@
-# Cub3D - Raycasting Engine 🎮
-
 <div align="center">
+	<h1>Cub3D - Raycasting Engine 🎮</h1>
 
 ![42 School](https://img.shields.io/badge/42-School-000000?style=for-the-badge&logo=42&logoColor=white)
 ![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
@@ -12,6 +11,7 @@
 
 </div>
 
+[🇬🇧 English](README_EN.md) | [🇪🇸 Español](README.md)
 ---
 
 ## 📖 Descripción del Proyecto
