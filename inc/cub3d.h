@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: paularuizalcarazgmail.com <paularuizalc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 03:22:08 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/17 20:42:45 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/24 11:20:39 by paularuizal      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -289,31 +289,167 @@ char		*get_path(char *line);
  */
 void		draw_map(t_game *game);
 
+/**
+ * @brief Blends a pixel color into the image buffer
+ * 
+ * @param img Image where the pixel is drawn
+ * @param x X coordinate
+ * @param y Y coordinate
+ * @param color Color to apply
+ * @return uint32_t Final blended color
+ */
 uint32_t	blend_pixel(mlx_image_t *img, int x, int y, uint32_t color);
+
+/**
+ * @brief Loads wall textures of the paths.
+ * Initializes a texture array in game structure.
+ * 
+ * @param game Pointer to game structure
+ */
 void		init_textures(t_game *game);
 
+/**
+ * @brief Draws celing and floor backgrounds.
+ * Loads upper half with ceiling color and lower half with floor color.
+ * 
+ * @param game Pointer to game structure
+ */
 void		draw_background(t_game *game);
+
+/**
+ * @brief Main render loop function.
+ * Handles input, background drawing and raycasting.
+ * 
+ * @param param Pointer to game structure.
+ */
 void		render(void *param);
 
+/**
+ * @brief Initializes ray structure for a column of the screen.
+ * 
+ * @param game Pointer to game structure
+ * @param ray Pointer to ray structure
+ * @param x Screen column
+ */
 void		init_ray(t_game *game, t_ray *ray, int x);
+
+/**
+ * @brief Calculates delta distances for DDA algorithm.
+ * 
+ * @param ray Pointer to ray structure
+ */
 void		calc_delta_dist(t_ray *ray);
+
+/**
+ * @brief Calculates step direction and initial side distances.
+ * 
+ * @param game Pointer to game structure
+ * @param ray Pointer to ray structure
+ */
 void		calc_step_side(t_game *game, t_ray *ray);
+
+/**
+ * @brief Performs full raycasting process.
+ * Casts rays for each screen column.
+ * 
+ * @param game Pointer to game structure
+ */
 void		raycasting(t_game *game);
 
+/**
+ * @brief Executes DDA algorithm to find wall hit.
+ * 
+ * @param game Pointer to game structure
+ * @param ray Pointer to ray structure
+ */
 void		exec_dda(t_game *game, t_ray *ray);
+
+/**
+ * @brief Calculates perpendicular wall distance.
+ * 
+ * @param game Pointer to game structure
+ * @param ray Pointer to ray structure
+ */
 void		calc_wall_dist(t_game *game, t_ray *ray);
+
+/**
+ * @brief Calculates projected wall height.
+ * 
+ * @param ray Pointer to ray structure
+ */
 void		calc_line_height(t_ray *ray);
+
+/**
+ * @brief Initializes texture parameters for wall rendering.
+ * 
+ * @param game Pointer to game structure
+ * @param ray Pointer to ray structure
+ */
 void		init_texture_vars(t_game *game, t_ray *ray);
+
+/**
+ * @brief Draws textured vertical wall line
+ * 
+ * @param game Pointer to game structure
+ * @param ray Pointer to ray structure
+ * @param x Screen column
+ */
 void		draw_vertical_line(t_game *game, t_ray *ray, int x);
 
+/**
+ * @brief Calculates exact wall hit position
+ * 
+ * @param game Pointer to game structure
+ * @param ray Pointer to ray structure
+ */
 void		calc_wall_x(t_game *game, t_ray *ray);
+
+/**
+ * @brief Returns the texture index according to wall orientation.
+ * 
+ * @param ray Pointer to ray structure
+ * @return Texture index
+ */
 int			get_texture_index(t_ray *ray);
+
+/**
+ * @brief Caculates horizontal texture coordinate.
+ * 
+ * @param game Pointer to game structure
+ * @param ray Pointer to ray structure
+ * @param tex_id Texture index
+ */
 void		calc_tex_x(t_game *game, t_ray *ray, int tex_id);
 
+/**
+ * @brief Moves player with collision detection.
+ * 
+ * @param game Pointer to game structure
+ * @param dir_x Direction X component
+ * @param dir_y Direction Y component
+ */
 void		move(t_game *game, double dir_x, double dir_y);
+
+/**
+ * @brief Handles keyboard input each frame.
+ * Manages movement, rotation and exit.
+ * 
+ * @param param Pointer to game structure
+ */
 void		player_input(void *param);
 
+/**
+ * @brief Rotates player view to the left.
+ * 
+ * @param game Pointer to game structure
+ */
 void		rotate_left(t_game *game);
+
+/**
+ * @brief Rotates player view to the right.
+ * 
+ * @param game Pointer to game structure
+ */
 void		rotate_right(t_game *game);
 
 /* ************************************************************************** */

@@ -1,3 +1,5 @@
+*This project has been created as part of the 42 curriculum by eduaserr, pruiz-al*
+
 <div align="center">
 	<h1>Cub3D - Raycasting Engine 🎮</h1>
 
