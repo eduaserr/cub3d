@@ -9,11 +9,29 @@
 
 **A 3D raycasting engine inspired by Wolfenstein 3D**
 
-[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Development](#-development)
-
 </div>
 
 [🇪🇸 Español](README.md) | [🇬🇧 English](README_EN.md)
+
+---
+
+## 📑 Table of Contents
+
+1. [📖 Project Description](#-project-description)
+2. [🚀 Main Features](#-main-features)
+3. [📁 Project Architecture](#-project-architecture)
+4. [🔄 Development Evolution](#-development-evolution)
+5. [🐛 Resolved Technical Challenges](#-resolved-technical-challenges)
+6. [🧪 Testing and Validation](#-testing-and-validation)
+7. [💻 Installation](#-installation)
+8. [🎮 Controls](#-controls)
+9. [📝 .cub File Format](#-cub-file-format)
+10. [🏗️ Raycasting Algorithm](#️-raycasting-algorithm)
+11. [🎨 Rendering System](#-rendering-system)
+12. [👥 Contributors](#-contributors)
+13. [📚 Resources and References](#-resources-and-references)
+14. [📄 License](#-license)
+
 ---
 
 ## 📖 Project Description

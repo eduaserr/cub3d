@@ -9,11 +9,29 @@
 
 **Un motor de raycasting 3D inspirado en Wolfenstein 3D**
 
-[Características](#-características) • [Instalación](#-instalación) • [Uso](#-uso) • [Desarrollo](#-desarrollo)
-
 </div>
 
 [🇬🇧 English](README_EN.md) | [🇪🇸 Español](README.md)
+
+---
+
+## 📑 Tabla de Contenidos
+
+1. [📖 Descripción del Proyecto](#-descripción-del-proyecto)
+2. [🚀 Características Principales](#-características-principales)
+3. [📁 Arquitectura del Proyecto](#-arquitectura-del-proyecto)
+4. [🔄 Evolución del Desarrollo](#-evolución-del-desarrollo)
+5. [🐛 Desafíos Técnicos Resueltos](#-desafíos-técnicos-resueltos)
+6. [🧪 Testing y Validación](#-testing-y-validación)
+7. [💻 Instalación](#-instalación)
+8. [🎮 Controles](#-controles)
+9. [📝 Formato del Archivo .cub](#-formato-del-archivo-cub)
+10. [🏗️ Algoritmo de Raycasting](#️-algoritmo-de-raycasting)
+11. [🎨 Sistema de Renderizado](#-sistema-de-renderizado)
+12. [👥 Colaboradores](#-colaboradores)
+13. [📚 Recursos y Referencias](#-recursos-y-referencias)
+14. [📄 Licencia](#-licencia)
+
 ---
 
 ## 📖 Descripción del Proyecto
