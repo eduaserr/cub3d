@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
+#    By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/13 03:22:17 by eduaserr          #+#    #+#              #
-#    Updated: 2026/02/14 12:59:40 by eduaserr         ###   ########.fr        #
+#    Updated: 2026/02/25 18:24:02 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,9 +42,9 @@ OBJS	= $(SRC:.c=.o) $(SRCS:.c=.o)
 all : libmlx $(NAME)
 
 libmlx:
-	$(MAKE) -C $(LIB)
-	cmake $(LIBMLX) -B $(LIBMLX)/build
-	make -C $(LIBMLX)/build -j4
+	@$(MAKE) -C $(LIB) --no-print-directory
+	@cmake $(LIBMLX) -B $(LIBMLX)/build
+	@make -C $(LIBMLX)/build -j4 --no-print-directory
 
 $(NAME): $(OBJS)
 	@echo "loading cub3d..."
@@ -52,7 +52,7 @@ $(NAME): $(OBJS)
 	@echo "cub3d compiled successfully"
 
 %.o: %.c
-	$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
+	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
 clean:
 	@echo "clearing cub3d...🧹"
