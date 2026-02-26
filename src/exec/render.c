@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: pruiz-al <pruiz-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 23:55:21 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/17 04:10:35 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/26 20:55:03 by pruiz-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-/* static int	rgb_to_int(t_color c)
+static int	rgb_to_int(t_color c)
 {
 	return ((c.r << 24) | (c.g << 16) | (c.b << 8) | 255);
-} */
+}
 
 void	draw_background(t_game *game)
 {
@@ -29,9 +29,9 @@ void	draw_background(t_game *game)
 		while (x < WIN_WIDTH)
 		{
 			if (y < WIN_HEIGHT / 2)
-				mlx_put_pixel(game->img, x, y, 0x87CEEBFF);
+				mlx_put_pixel(game->img, x, y, rgb_to_int(game->parser.rgb[C]));
 			else
-				mlx_put_pixel(game->img, x, y, 0x444444FF);
+				mlx_put_pixel(game->img, x, y, rgb_to_int(game->parser.rgb[F]));
 			x++;
 		}
 		y++;
