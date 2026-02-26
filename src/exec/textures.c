@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: pruiz-al <pruiz-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 23:55:31 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/13 23:55:32 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/26 20:25:25 by pruiz-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	calc_tex_x(t_game *game, t_ray *ray, int tex_id)
 
 	tex_width = game->tex[tex_id]->width;
 	ray->tex_x = (int)(ray->wall_x * tex_width);
-	if ((ray->side == 0 && ray->ray_dir_x > 0)
-		|| (ray->side == 1 && ray->ray_dir_y < 0))
+	if ((ray->side == 0 && ray->ray_dir_x < 0)
+		|| (ray->side == 1 && ray->ray_dir_y > 0))
 		ray->tex_x = tex_width - ray->tex_x - 1;
 }
