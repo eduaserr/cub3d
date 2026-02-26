@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+         #
+#    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/13 03:22:17 by eduaserr          #+#    #+#              #
-#    Updated: 2026/02/25 18:24:02 by eduaserr         ###   ########.fr        #
+#    Updated: 2026/02/26 23:19:27 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### COMPILATION ###
-NAME	= cub3d
+NAME	= cub3D
 CC		= clang
 CFLAGS	= -Wall -Wextra -Werror -Wunreachable-code -O3 -g
 LIBMLX	:= ./lib/MLX42
