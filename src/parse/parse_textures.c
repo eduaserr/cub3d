@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 01:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/26 23:23:51 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/26 23:29:44 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	get_sidetxt(t_game *game, char **file)
 	while (file[++i])
 	{
 		type = get_type(file[i], sides, 4);
-		printf("type -> %d\n", type);
 		if (type != -1)
 		{
 			if (game->parser.imgsidewall[type])

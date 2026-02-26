@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_colors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 18:00:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/17 20:43:07 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/27 00:35:56 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ static int	process_color(t_game *game, char *line, int type)
 {
 	if (game->parser.rgb[type].b != -1)
 	{
-		ft_error2("Duplicate colour definition");
-		return (0);
+		game->parser.rgb[type].b = -1;
+		return (ft_error2("Duplicate colour definition"), 0);
 	}
 	game->parser.rgb[type] = parse_rgb(get_path(line));
 	if (!valid_color(game->parser.rgb[type]))
@@ -64,21 +64,18 @@ void	get_colors(t_game *game, char **file)
 {
 	int		i;
 	int		type;
-	int		count;
 	char	*colors[2];
 
 	colors[F] = "F";
 	colors[C] = "C";
 	i = -1;
-	count = 0;
-	while (file[++i] && count < 2)
+	while (file[++i])
 	{
 		type = get_type(file[i], colors, 2);
 		if (type == F || type == C)
 		{
 			if (!process_color(game, file[i], type))
 				return ;
-			count++;
 		}
 	}
 }

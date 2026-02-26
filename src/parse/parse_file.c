@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 20:43:55 by eduaserr          #+#    #+#             */
-/*   Updated: 2026/02/10 18:54:21 by eduaserr         ###   ########.fr       */
+/*   Updated: 2026/02/27 00:34:42 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	check_map(t_game *game, char **map)
 }
 
 void	parse_file(t_game *game, char **file)
-{
+{ 
 	get_sidetxt(game, file);
 	// Validar que todas las texturas existen
 	if (!game->parser.imgsidewall[NORTH] || !game->parser.imgsidewall[EAST]
