@@ -219,6 +219,25 @@ else
 - Preserve empty lines as empty strings `""`
 - Fill short lines with spaces
 
+### 6. Map Discontinuity (Islands)
+**Problem:** Map could have empty lines or disconnected parts (islands) creating invalid geometries.
+
+**Example of invalid map:**
+```
+1111
+1001
+      ← Empty line inside map
+1001  ← This creates an island
+1111
+```
+
+**Solution:**
+Implemented validation in `find_map()` that:
+- Detects empty lines **inside** the map (map must be continuous)
+- Detects map fragments before configuration lines
+- Detects map islands after the main map
+```
+
 ---
 
 ## 🧪 Testing and Validation
@@ -307,12 +326,21 @@ C 225,30,0
 ```
 
 **Validation rules:**
-- Identifiers: `NO`, `SO`, `WE`, `EA`, `F`, `C`
-- Textures: `.png` extension mandatory
-- RGB: values between 0-255, format `R,G,B`
-- Map: valid characters `0`, `1`, `N`, `S`, `E`, `W`, spaces
-- Single player with orientation (`N`/`S`/`E`/`W`)
-- Map closed by walls (`1`)
+
+**Configuration elements:**
+- Identifiers: `NO`, `SO`, `WE`, `EA`, `F`, `C` (no duplicates allowed)
+- Textures: `.png` extension mandatory, files must exist
+- RGB: values between 0-255, format `R,G,B` (no spaces inside)
+- Configuration can be in any order
+- Multiple spaces/line breaks allowed between elements
+
+**Map rules:**
+- Valid characters: `0` (floor), `1` (wall), `N/S/E/W` (player + orientation), spaces
+- Single player with orientation (`N`/`S`/`E`/`W`) mandatory
+- Map must be closed/surrounded by walls (`1`)
+- **Map must be continuous** (no empty lines inside)
+- Map ends at first empty line after start
+- Spaces inside map represent empty areas (must also be surrounded by walls)
 
 ---
 

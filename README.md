@@ -218,6 +218,26 @@ else
 - Preservar líneas vacías como strings vacíos `""`
 - Rellenar con espacios las líneas cortas
 
+### 6. Discontinuidad del Mapa (Islas)
+**Problema:** El mapa podía tener líneas vacías o partes desconectadas (islas) creando geometrías inválidas.
+
+**Ejemplo de mapa inválido:**
+```
+1111
+1001
+      ← Línea vacía dentro del mapa
+1001  ← Esto crea una isla
+1111
+```
+
+**Solución:**
+Implementación de validación en `find_map()` que:
+- Detecta líneas vacías **dentro** del mapa (el mapa debe ser continuo)
+- Detecta fragmentos de mapa antes de las líneas de configuración
+- Detecta islas de mapa después del mapa principal
+
+```
+
 ---
 
 ## 🧪 Testing y Validación
@@ -306,12 +326,21 @@ C 225,30,0
 ```
 
 **Reglas de validación:**
-- Identificadores: `NO`, `SO`, `WE`, `EA`, `F`, `C`
-- Texturas: extensión `.png` obligatoria
-- RGB: valores entre 0-255, formato `R,G,B`
-- Mapa: caracteres válidos `0`, `1`, `N`, `S`, `E`, `W`, espacios
-- Un solo jugador con orientación (`N`/`S`/`E`/`W`)
-- Mapa cerrado por paredes (`1`)
+
+**Elementos de configuración:**
+- Identificadores: `NO`, `SO`, `WE`, `EA`, `F`, `C` (no se permiten duplicados)
+- Texturas: extensión `.png` obligatoria, los archivos deben existir
+- RGB: valores entre 0-255, formato `R,G,B` (sin espacios internos)
+- La configuración puede estar en cualquier orden
+- Se permiten múltiples espacios/saltos de línea entre elementos
+
+**Reglas del mapa:**
+- Caracteres válidos: `0` (suelo), `1` (pared), `N/S/E/W` (jugador + orientación), espacios
+- Un solo jugador con orientación (`N`/`S`/`E`/`W`) obligatorio
+- El mapa debe estar cerrado/rodeado por paredes (`1`)
+- **El mapa debe ser continuo** (sin líneas vacías dentro)
+- El mapa termina en la primera línea vacía después de comenzar
+- Los espacios dentro del mapa representan áreas vacías (también deben estar rodeados por paredes)
 
 ---
 

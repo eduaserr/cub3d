@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script de prueba para cub3d
+# Script de prueba para cub3D
 # Prueba todos los mapas de error y éxito
 
 set -e
@@ -24,11 +24,11 @@ echo "================================"
 echo ""
 
 # Compilar
-echo -e "${YELLOW}Compilando cub3d...${NC}"
+echo -e "${YELLOW}Compilando cub3D...${NC}"
 make clean > /dev/null 2>&1 || true
 make > /dev/null 2>&1
-if [ ! -f ./cub3d ]; then
-    echo -e "${RED}Error: No se pudo compilar cub3d${NC}"
+if [ ! -f ./cub3D ]; then
+    echo -e "${RED}Error: No se pudo compilar cub3D${NC}"
     exit 1
 fi
 echo -e "${GREEN}Compilación exitosa${NC}"
@@ -41,7 +41,7 @@ test_failure_map() {
     TOTAL=$((TOTAL + 1))
     
     # Ejecutar con valgrind
-    if valgrind --leak-check=full ./cub3d "$map" > /dev/null 2>&1; then
+    if valgrind --leak-check=full ./cub3D "$map" > /dev/null 2>&1; then
         echo -e "${RED}[FAIL]${NC} $description"
         echo "       Esperaba error pero el programa ejecutó exitosamente"
         FAILED=$((FAILED + 1))
@@ -61,7 +61,7 @@ test_success_map() {
     
     # Ejecutar el programa y capturar el código de salida
     # Como los mapas de éxito lanzan la ventana MLX, usamos timeout
-    if timeout 1 ./cub3d "$map" > /dev/null 2>&1; then
+    if timeout 1 ./cub3D "$map" > /dev/null 2>&1; then
         echo -e "${GREEN}[PASS]${NC} $description"
         PASSED=$((PASSED + 1))
         return 0
